@@ -1,7 +1,8 @@
 import { ThunkAction } from 'redux-thunk';
-import { IUser } from './../../../app/ui/interfaces';
+import { IUser } from '../../../ui/interfaces';
 import { Action, createSlice } from "@reduxjs/toolkit";
 import { getUsers } from "../../../services/user_service/user_service";
+import { redirect } from 'next/navigation';
 
 
 interface IStateType {
@@ -45,6 +46,7 @@ export const authSlice = createSlice({
           localStorage.setItem("user", JSON.stringify(item));
           state.user = item;
           state.isAuth = true;
+          redirect("/")
         } else {
           state.errorMessage = "Неверный логин или пароль";
         }

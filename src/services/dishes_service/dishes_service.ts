@@ -1,4 +1,4 @@
-import {IFood} from "../../app/ui/interfaces"
+import {IFood} from "../../ui/interfaces"
 import { instance } from "..";
 
 interface IPromiseProps {

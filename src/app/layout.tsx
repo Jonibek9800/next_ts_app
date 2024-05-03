@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { inter } from "./ui/fonts";
-import { Provider } from "react-redux";
-import { stores } from "../store/index"
-import { Providers } from "./ui/provider";
+import { montserrat } from "../ui/fonts";
+import { Providers } from "../ui/provider";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import Layouts from "../ui/layout";
 
 
 export const metadata: Metadata = {
@@ -18,9 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <Providers>
-          {children}
+          <AntdRegistry>
+            <Layouts>
+              {children}
+            </Layouts>
+          </AntdRegistry>
         </Providers>
       </body>
     </html>

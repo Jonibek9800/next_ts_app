@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/cssinjs": "^1.20.0",
+    "@ant-design/nextjs-registry": "^1.0.0",
     "@reduxjs/toolkit": "^2.2.3",
     "@types/react": "^18.3.1",
     "@types/react-redux": "^7.1.33",

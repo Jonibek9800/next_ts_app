@@ -1,4 +1,4 @@
-import { IFood } from '../../../app/ui/interfaces';
+import { IFood } from '../../../ui/interfaces';
 import { Action, createSlice } from "@reduxjs/toolkit";
 import { getDishes } from "../../../services/dishes_service/dishes_service";
 import { ThunkAction } from 'redux-thunk';

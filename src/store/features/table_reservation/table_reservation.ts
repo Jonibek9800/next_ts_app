@@ -1,5 +1,5 @@
 import { ThunkAction } from 'redux-thunk';
-import { IFood, IReserTable } from './../../../app/ui/interfaces';
+import { IFood, IReserTable } from '../../../ui/interfaces';
 import { Action, createSlice } from "@reduxjs/toolkit";
 
 

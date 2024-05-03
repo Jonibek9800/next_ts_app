@@ -1,5 +1,6 @@
-import FoodMenu from "@/app/components/FoodMenu";
-import ReservMenu from "@/app/components/ReservMenu";
+"use client"
+import FoodMenu from "@/components/FoodMenu";
+import ReservMenu from "@/components/ReservMenu";
 import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import { getDishesList } from "@/store/features/dishes/dishes";
 import { Button } from "antd";
@@ -23,7 +24,7 @@ const MenuAndReserv = () => {
     const toggleClose = () => {
         setOpen(prev => !prev);
     }
-    return <Content style={{ textAlign: 'center' }}>
+    return <Content style={{ textAlign: 'center', }}>
         <Title level={3}>Бронирование</Title>
         <Card
             hoverable
