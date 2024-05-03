@@ -1,0 +1,158 @@
+{
+  "reservTable": [],
+  "users": [
+    { "id": 1, "name": "Jonson", "password": "123456", "age": 23 },
+    { "id": 2, "name": "Daemon", "password": "123456", "age": 20 },
+    { "id": 3, "name": "Jackson", "password": "123456", "age": 28 },
+    { "id": 4, "name": "Simpson", "password": "123456", "age": 22 }
+  ],
+  "dishes": [
+    {
+      "id": 1,
+      "foodName": "BBQ Куриные лепешки",
+      "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+      "foodType": "Sandwich",
+      "price": 35,
+      "calories": 380,
+      "carbs": 41
+    },
+    {
+      "id": 2,
+      "foodName": "Куриные лепешки",
+      "image": "./img/menu/Chicken_Flatbread.jpg",
+      "calories": 380,
+      "price": 30,
+      "correctedTerm": "BBQ Chicken Flatbread",
+      "carbs": 41
+    },
+    {
+      "id": 3,
+      "foodName": "Лепешка с томатами и моцареллой",
+      "image": "./img/menu/Tomato_Mozzarella_Flatbread.jpg",
+      "calories": 350,
+      "price": 42,
+      "carbs": 35
+    },
+    {
+      "id": 4,
+      "foodName": "Жареные клюквенные лепешки из индейки",
+      "image": "./img/menu/Roasted_Turkey_Cranberry_Flatbread.jpg",
+      "price": 53,
+      "calories": 310,
+      "carbs": 36
+    },
+    {
+      "id": 5,
+      "foodName": "Клюквенные лепешки из индейки",
+      "image": "./img/menu/Roasted_Turkey_Cranberry_Flatbread.jpg",
+      "price": 37,
+      "calories": 310,
+      "carbs": 36
+    },
+    {
+      "id": 6,
+      "foodName": "Итальянский ролл Хоги",
+      "image": "./img/menu/Half_Size_Italian_on_Hoagie_Roll.jpg",
+      "price": 27,
+      "calories": 440,
+      "carbs": 38
+    },
+    {
+      "id": 7,
+      "foodName": "Панини со стейком и белым чеддером",
+      "image": "./img/menu/Steak_and_White_Cheddar_Panini.webp",
+      "price": 70,
+      "calories": 940,
+      "carbs": 79
+    },
+    {
+      "id": 8,
+      "foodName": "Куриный Панини",
+      "image": "./img/menu/Chicken_Panini.webp",
+      "calories": 750,
+      "price": 48,
+      "correctedTerm": "Frontega Chicken Panini on Focaccia",
+      "carbs": 85
+    },
+    {
+      "id": 9,
+      "foodName": "Турецкий сэндвич",
+      "image": "./img/menu/Half_Turkey_Sandwich.jpg",
+      "calories": 280,
+      "price": 25,
+      "correctedTerm": "Half Size Turkey Breast Sandwich",
+      "carbs": 32
+    },
+    {
+      "id": 10,
+      "foodName": "Cыр на гриле",
+      "image": "./img/menu/Grilled_Cheese.webp",
+      "calories": 640,
+      "price": 32,
+      "correctedTerm": "Classic Grilled Cheese",
+      "carbs": 73
+    },
+    {
+      "id": 11,
+      "foodName": "Сэндвич с куриным салатом",
+      "image": "./img/menu/Chicken_Salad_Sandwich.webp",
+      "calories": 700,
+      "price": 35,
+      "carbs": 90
+    },
+    {
+      "id": 12,
+      "foodName": "Вегетарианский сэндвич",
+      "image": "./img/menu/Veggie_Sandwich.jpg",
+      "price": 27,
+      "calories": 440,
+      "carbs": 65
+    },
+    {
+      "id": 13,
+      "foodName": "Средиземноморский сэндвич",
+      "image": "./img/menu/Mediterranean_Sandwich.jpg",
+      "price": 40,
+      "calories": 440,
+      "carbs": 65
+    },
+    {
+      "id": 14,
+      "foodName": "Древний зерновой греческий салат",
+      "image": "./img/menu/Ancient_Grain_Greek_Salad.jpeg",
+      "price": 30,
+      "foodType": "Salad",
+      "calories": 400,
+      "carbs": 38,
+      "sideItem": true,
+      "dressingItem": true
+    },
+    {
+      "id": 15,
+      "foodName": "Современный греческий салат с киноа",
+      "price": 30,
+      "image": "./img/menu/Modern_Greek_Salad_with_Quinoa.jpeg",
+      "foodType": "Salad",
+      "calories": 530,
+      "carbs": 29,
+      "sideItem": true,
+      "dressingItem": true
+    },
+    {
+      "id": 16,
+      "foodName": "Куриные Тортеллини Альфредо",
+      "image": "./img/menu/Chicken_Tortellini_Alfredo.jpg",
+      "price": 70,
+      "calories": 750,
+      "carbs": 68
+    },
+    {
+      "id": 17,
+      "foodName": "Макароны с сыром",
+      "image": "./img/menu/Macaroni_and_Cheese.jpg",
+      "price": 29,
+      "calories": 470,
+      "carbs": 36
+    }
+  ]
+}
