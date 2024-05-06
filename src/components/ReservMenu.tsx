@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 import { Button, Drawer, Radio, Select, Space } from "antd";
 import FoodMenu from "./FoodMenu";
-import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
-import { handleDishesOrder, handleNumOfPeople, handleSetReserveTable } from "@/store/features/table_reservation/table_reservation";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/hooks";
+import { handleDishesOrder, handleNumOfPeople, handleSetReserveTable } from "@/shared/store/features/table_reservation/table_reservation";
 const tables = [
   {
     value: "столик на одного",
@@ -81,7 +81,7 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
             <Radio value="заказать сейчас">Заказать сейчась</Radio>
           </Space>
         </Radio.Group>
-        {table.orderedTable.dishesOrder === "заказать сейчас" ? <FoodMenu dishes={dishes.dishes} /> : ''}
+        {table.orderedTable.dishesOrder === "заказать сейчас" ? <FoodMenu /> : ''}
         <div style={{ position: "fixed", bottom: 0, backgroundColor: "grey", width: "100%" }}>
           {table.totalOrderPrice != 0 && <span style={{ margin: 10, padding: 10, backgroundColor: "#cfe1e5", borderRadius: "10px" }}>{table.totalOrderPrice} c</span>}
           <Button onClick={handleOrderedTable} style={{ margin: 10 }}>Забронировать столик</Button>

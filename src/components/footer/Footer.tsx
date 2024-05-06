@@ -8,8 +8,8 @@ import {
   InstagramOutlined,
   LinkedinOutlined,
 } from '@ant-design/icons';
-import { goToRoute } from '../../store/features/navigate/navigate';
-import { useAppDispatch } from '@/hooks/hooks';
+import { goToRoute } from '../../shared/store/features/navigate/navigate';
+import { useAppDispatch } from '@/shared/hooks/hooks';
 import { useRouter } from 'next/navigation';
 
 const { Footer } = Layout;
@@ -40,7 +40,7 @@ const FooterComponent = () => {
             <Menu mode="vertical" style={{ backgroundColor: "#e6e2d0", }}>
               <Menu.Item key="1" onClick={() => { router.push("/"); dispatch(goToRoute("/")) }}>Главная</Menu.Item>
               <Menu.Item key="2" onClick={() => { router.push("/reserv_and_menu"); dispatch(goToRoute("/reserv_and_menu")) }}>Меню и Бронирование</Menu.Item>
-              <Menu.Item key="4" onClick={() => { router.push("/aboute_us"); dispatch(goToRoute("/aboute_us")) }}>О нас</Menu.Item>
+              <Menu.Item key="4" onClick={() => { router.push("/about"); dispatch(goToRoute("/about")) }}>О нас</Menu.Item>
             </Menu>
           </Col>
         </Row>

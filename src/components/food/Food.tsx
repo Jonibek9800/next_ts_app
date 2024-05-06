@@ -1,10 +1,10 @@
-import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
-import { cancelOrderedDish, handleOrderFood, totalOrderPrice } from "@/store/features/table_reservation/table_reservation";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/hooks";
+import { cancelOrderedDish, handleOrderFood, totalOrderPrice } from "@/shared/store/features/table_reservation/table_reservation";
 import { Button, Card, Space, Tooltip } from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
 import { FC, useEffect, useState } from "react";
-import { IFood } from "../../ui/interfaces";
+import { IFood } from "../../shared/ui/interfaces";
 
 
 interface IFoodProps {
@@ -46,7 +46,7 @@ const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
         }
     };
 
-    useEffect(() => { dispatch(totalOrderPrice(totalSum)); }, [totalSum]);
+    useEffect(() => { dispatch(totalOrderPrice(totalSum)); }, [totalSum, dispatch]);
 
     const handleOrder = (dish: IFood) => {
         setTotalSum((prev: number) => prev += (dish.price * quantity))
@@ -57,7 +57,7 @@ const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
 
     return <Card key={food.id}
         style={{ width: "300px", textAlign: "start" }}
-        cover={<img style={{ height: 200, borderRadius: 10 }} alt="" src={food.image} />}>
+        cover={<img style={{ height: 200, borderRadius: 10 }} alt={food.foodName} src={food.image} />}>
         <Meta
             style={{ fontSize: 16 }}
             title={<Tooltip title={food.foodName}><span style={{ fontSize: 20 }}>{food.foodName}</span></Tooltip>}

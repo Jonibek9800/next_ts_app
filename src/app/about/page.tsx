@@ -14,7 +14,7 @@ const AboutUs: FC = () => {
             <Title level={2} style={{ color: "#1890ff" }}>О нас</Title>
             <Divider style={{ borderColor: "#ccc" }} />
             <Paragraph style={{ marginBottom: "16px" }}>
-                Ресторан "Вкусные сюрпризы" приглашает вас на незабываемое кулинарное путешествие,
+                Ресторан &quot;Вкусные сюрпризы&quot; приглашает вас на незабываемое кулинарное путешествие,
                 где каждое блюдо - это настоящий шедевр, а атмосфера - воплощение уюта и радушия.
             </Paragraph>
             <Paragraph style={{ marginBottom: "16px" }}>

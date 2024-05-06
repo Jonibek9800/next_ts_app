@@ -1,7 +1,6 @@
 import React, { FC } from "react";
-import { Carousel } from "antd";
+import { Carousel, Image } from "antd";
 
-// const screenHeight = window.innerHeight;
 const contentStyle = {
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -10,56 +9,68 @@ const contentStyle = {
 };
 
 const CarouselSlider: FC = () => {
-  // const onChange = (currentSlide: any) => {
-  //   console.log(currentSlide);
-  // };
   return (
     <Carousel style={{ width: "100%", margin: "auto" }} autoplay>
-      <div style={{position: 'relative'}}>
-        <img
+      <div>
+        <Image
           style={{
             ...contentStyle,
-            backgroundImage: `url("./img/resto_fon1.jpg")`,
+            // backgroundImage: `url("./img/resto_fon1.jpg")`,
           }}
-          alt=""
+          width="100%"
+          height="100%"
+          src="./img/resto_fon1.jpg"
+          alt="./img/resto_fon1.jpg"
         />
       </div>
       <div >
-        <img
+        <Image
           style={{
             ...contentStyle,
-            backgroundImage: `url("./img/resto_fon2.jpg")`,
+            // backgroundImage: `url("./img/resto_fon2.jpg")`,
           }}
-          alt=""
+          width="100%"
+          height="100%"
+          src="./img/resto_fon2.jpg"
+          alt="./img/resto_fon2.jpg"
         />
       </div>
       <div >
-        <img
+        <Image
           style={{
             ...contentStyle,
-            backgroundImage: `url("./img/resto_fon3.jpg")`,
+            // backgroundImage: `url("./img/resto_fon3.jpg")`,
           }}
-          alt=""
+          width="100%"
+          height="100%"
+          src="./img/resto_fon3.jpg"
+          alt="./img/resto_fon3.jpg"
         />
       </div>
       <div>
-        <img
+        <Image
+          width="100%"
+          height="100%"
+          src="./img/resto_fon4.jpg"
           style={{
-            backgroundImage: `url("./img/resto_fon4.jpg")`,
+            // backgroundImage: `url("./img/resto_fon4.jpg")`,
             ...contentStyle,
           }}
-          alt=""
+          alt="./img/resto_fon4.jpg"
         />
       </div>
       <div >
-        <img
+        <Image
+          width="100%"
+          height="100%"
           style={{
-            backgroundImage: `url("./img/resto_fon5.jpg")`,
+            // backgroundImage: `url("./img/resto_fon5.jpg")`,
             ...contentStyle,
           }}
-          alt=""
+          src="./img/resto_fon5.jpg"
+          alt="./img/resto_fon5.jpg"
         />
-         
+
       </div>
     </Carousel>
   );

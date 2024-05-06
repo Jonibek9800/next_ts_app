@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { montserrat } from "../ui/fonts";
-import { Providers } from "../ui/provider";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import Layouts from "../ui/layout";
+import { montserrat } from "../shared/ui/fonts";
+import Layouts from "../shared/ui/layout";
+import Providers from "./providers";
 
 
 export const metadata: Metadata = {
@@ -20,11 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={montserrat.className}>
         <Providers>
-          <AntdRegistry>
             <Layouts>
               {children}
             </Layouts>
-          </AntdRegistry>
         </Providers>
       </body>
     </html>

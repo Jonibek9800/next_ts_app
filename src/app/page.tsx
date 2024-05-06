@@ -18,7 +18,6 @@ const Home: React.FC = () => {
       >
         <CarouselSlider />
       </Content>
-      <Content></Content>
       <FooterComponent />
     </Layout>
   );

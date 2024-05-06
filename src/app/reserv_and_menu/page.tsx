@@ -1,25 +1,27 @@
 "use client"
+export const dynamic = "force-dynamic";
 import FoodMenu from "@/components/FoodMenu";
 import ReservMenu from "@/components/ReservMenu";
-import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
-import { getDishesList } from "@/store/features/dishes/dishes";
-import { Button } from "antd";
+import { useAppDispatch } from "@/shared/hooks/hooks";
+import { getDishesList } from "@/shared/store/features/dishes/dishes";
+import { Button, Image } from "antd";
 import Card from "antd/es/card/Card";
 import Meta from "antd/es/card/Meta";
 import { Content } from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 import { useEffect, useState, useTransition } from "react";
 
+
+
 const MenuAndReserv = () => {
     const [open, setOpen] = useState(false);
     const dispatch = useAppDispatch();
-    const dishes = useAppSelector(state => state.dishes);
     const [isPending, startTransition] = useTransition();
 
 
     useEffect(() => {
         startTransition(() => dispatch(getDishesList()))
-    }, [])
+    }, [dispatch])
 
     const toggleClose = () => {
         setOpen(prev => !prev);
@@ -32,7 +34,7 @@ const MenuAndReserv = () => {
                 width: 240,
                 margin: "auto",
             }}
-            cover={<img alt="example" src="./img/table/table_on_two.jpg" />}
+            cover={<Image alt="example" src="./img/table/table_on_two.jpg" />}
         >
             <Meta
                 title={<Button onClick={toggleClose}>Забронировать столик</Button>}
@@ -40,7 +42,7 @@ const MenuAndReserv = () => {
         </Card>
         {open && <ReservMenu onClose={toggleClose} open={open} />}
         <Title level={3}>Меню</Title>
-        {isPending ? "Loading..." : <FoodMenu dishes={dishes.dishes} />}
+        {isPending ? "Loading..." : <FoodMenu />}
     </Content>;
 }
 

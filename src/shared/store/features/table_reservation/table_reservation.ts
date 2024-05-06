@@ -44,7 +44,7 @@ export const tableSlice = createSlice({
       state.orderedFood = action.payload;
     },
     setOrderedTable: (state, action) => {
-      localStorage.setItem("reserveTables", JSON.stringify(action.payload));
+      // localStorage.setItem("reserveTables", JSON.stringify(action.payload));
       (state.orderedFood = []),
         (state.orderedTable.dishesOrder = "заказать еду на месте");
       state.orderedTable.numberOfPeople = "столик на одного";
@@ -88,8 +88,10 @@ export const totalOrderPrice = (payload: number): ThunkAction<void, unknown, unk
 
 export const handleSetReserveTable = (payload: IReserTable): ThunkAction<void, unknown, unknown, Action<string>> => async (dispatch) => {
   try {
-    if (localStorage.getItem("reserveTables") != null) {
-      const reserveTables = JSON.parse(localStorage.getItem("reserveTables") ?? "");
+    // localStorage.getItem("reserveTables")
+    if (null != null) {
+      const reserveTables = [];
+      // JSON.parse(localStorage.getItem("reserveTables") ?? "");
       reserveTables.push(payload);
       dispatch(setOrderedTable(reserveTables));
     } else {

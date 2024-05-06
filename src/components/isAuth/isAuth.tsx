@@ -1,15 +1,16 @@
-import { useAppSelector } from "@/hooks/hooks";
+"use client"
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
 const IsAuth = (Component: any) => {
     return function IsAuth(props: any) {
-        const strUser = localStorage.getItem("user");
-        let isAuth: any = null;
+        let strUser = "";
+        let isAuth: boolean = false;
         if (strUser) {
             isAuth = JSON.parse(strUser)
         }
         useEffect(() => {
+            strUser = localStorage.getItem("user") ?? "";
             if (isAuth) {
                 redirect("/")
             }

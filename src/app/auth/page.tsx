@@ -1,26 +1,17 @@
 "use client"
+export const dynamic = "force-dynamic";
 
-import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
-import { auth } from "@/store/features/auth/auth";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/hooks";
+import { auth } from "@/shared/store/features/auth/auth";
 import { Button, Checkbox, Form, Input, Layout } from "antd";
-import { FunctionComponent, useEffect, useLayoutEffect, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { redirect } from "next/navigation";
 import IsAuth from "@/components/isAuth/isAuth";
 
 const Login: FunctionComponent = () => {
 
-
-
     const dispatch = useAppDispatch();
     const { errorMessage, isAuth } = useAppSelector(state => state.user)
-    // useLayoutEffect(() => {
-    //     const user = JSON.parse(localStorage.getItem("user") ?? "");
-    //     console.log(user);
-    //     if (user != null) {
-    //         redirect("/");
-    //     }
-    // }, [])
 
     const [formData, setFormData] = useState({
         username: "",
@@ -34,8 +25,6 @@ const Login: FunctionComponent = () => {
     const [error, setError] = useState<string | null>();
     useEffect(() => {
         setError(errorMessage);
-        console.log(errorMessage);
-
     }, [errorMessage])
     const onFinish = () => {
         dispatch(auth(formData))

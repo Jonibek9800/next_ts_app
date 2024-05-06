@@ -4,10 +4,10 @@ import { Layout, Menu, theme, Button, Avatar } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import { useRouter } from "next/navigation";
 import { UserOutlined } from "@ant-design/icons";
-import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
-import { checkAuth, getUsersList, setLogout } from "@/store/features/auth/auth";
-import { goToRoute } from "@/store/features/navigate/navigate";
-import { useEffect, useLayoutEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/hooks";
+import { checkAuth, getUsersList, setLogout } from "@/shared/store/features/auth/auth";
+import { goToRoute } from "@/shared/store/features/navigate/navigate";
+import { useEffect } from "react";
 
 
 interface IItems {
@@ -25,7 +25,7 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         dispatch(getUsersList());
         dispatch(checkAuth());
-    }, [])
+    }, [dispatch])
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
@@ -33,8 +33,6 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
     const handleChangePage = (e: any) => {
         const key = e.key;
         route.push(key)
-        console.log(key);
-
     }
 
     return <Layout>
@@ -52,6 +50,7 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
             <img
                 style={{ maxWidth: 60, backgroundColor: "#e6e2d8", cursor: 'pointer', flex: 2 }}
                 src="./img/resto_logo.png"
+                alt="example"
                 onClick={() => { route.push("/") }}
             />
             <Menu
