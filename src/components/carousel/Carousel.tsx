@@ -15,7 +15,6 @@ const CarouselSlider: FC = () => {
         <Image
           style={{
             ...contentStyle,
-            // backgroundImage: `url("./img/resto_fon1.jpg")`,
           }}
           width="100%"
           height="100%"
@@ -27,7 +26,6 @@ const CarouselSlider: FC = () => {
         <Image
           style={{
             ...contentStyle,
-            // backgroundImage: `url("./img/resto_fon2.jpg")`,
           }}
           width="100%"
           height="100%"
@@ -39,7 +37,6 @@ const CarouselSlider: FC = () => {
         <Image
           style={{
             ...contentStyle,
-            // backgroundImage: `url("./img/resto_fon3.jpg")`,
           }}
           width="100%"
           height="100%"
@@ -53,7 +50,6 @@ const CarouselSlider: FC = () => {
           height="100%"
           src="./img/resto_fon4.jpg"
           style={{
-            // backgroundImage: `url("./img/resto_fon4.jpg")`,
             ...contentStyle,
           }}
           alt="./img/resto_fon4.jpg"
@@ -64,7 +60,6 @@ const CarouselSlider: FC = () => {
           width="100%"
           height="100%"
           style={{
-            // backgroundImage: `url("./img/resto_fon5.jpg")`,
             ...contentStyle,
           }}
           src="./img/resto_fon5.jpg"

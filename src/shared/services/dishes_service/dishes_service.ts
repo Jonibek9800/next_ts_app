@@ -6,7 +6,7 @@ interface IPromiseProps {
 }
 
 
-export const getDishes = async () => {
-  const response: IPromiseProps = await instance.get<IFood[]>("/dishes");
+export const getDishes = async (path: string) => {
+  const response: IPromiseProps = await instance.get<IFood[]>(path);
   return response.data;
 };

@@ -1,27 +1,30 @@
-"use client"
+"use client";
 import { redirect } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const IsAuth = (Component: any) => {
-    return function IsAuth(props: any) {
-        let strUser = "";
-        let isAuth: boolean = false;
-        if (strUser) {
-            isAuth = JSON.parse(strUser)
-        }
-        useEffect(() => {
-            strUser = localStorage.getItem("user") ?? "";
-            if (isAuth) {
-                redirect("/")
-            }
-        }, [isAuth]);
+  return function IsAuth(props: any) {
+    let [strUser, setStrUser] = useState<string>();
+    let isAuth: boolean = false;
+    useEffect(() => {
+      setStrUser(localStorage.getItem("user") ?? "");
+    }, []);
+    if (strUser) {
+      isAuth = true;
+    }
+    useEffect(() => {
+      if (isAuth) {
+        redirect("/");
+      }
+    }, [isAuth]);
+    console.log(strUser);
+    
+    if (isAuth) {
+      return null;
+    }
 
-        if (isAuth) {
-            return null;
-        }
-
-        return <Component {...props} />
-    };
-}
+    return <Component {...props} />;
+  };
+};
 
 export default IsAuth;

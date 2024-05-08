@@ -1,12 +1,10 @@
-import { IFood } from '../../../ui/interfaces';
+import { IFood } from "../../../ui/interfaces";
 import { Action, createSlice } from "@reduxjs/toolkit";
-import { getDishes } from "../../../services/dishes_service/dishes_service";
-import { ThunkAction } from 'redux-thunk';
-
+import { ThunkAction } from "redux-thunk";
 
 interface IDishesType {
-  dishes: IFood[],
-  isLoading: boolean,
+  dishes: IFood[];
+  isLoading: boolean;
 }
 
 const initialState: IDishesType = {
@@ -29,13 +27,14 @@ export const dishesSlise = createSlice({
 
 export const { getDishList, setIsLoad } = dishesSlise.actions;
 
-export const getDishesList = (): ThunkAction<void, unknown, unknown, Action<string>> => async (dispatch) => {
-  dispatch(setIsLoad(true));
-  try {
-    const data = await getDishes();
-    dispatch(getDishList(data));
-  } catch (error) {
-    console.log(error);
-  }
-  dispatch(setIsLoad(false));
-};
+export const getDishesList =
+  (payload: IFood[]): ThunkAction<void, unknown, unknown, Action<string>> =>
+  (dispatch) => {
+    dispatch(setIsLoad(true));
+    try {
+      dispatch(getDishList(payload));
+    } catch (error) {
+      console.log(error);
+    }
+    dispatch(setIsLoad(false));
+  };

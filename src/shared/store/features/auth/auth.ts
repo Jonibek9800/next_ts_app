@@ -59,7 +59,7 @@ export const authSlice = createSlice({
     logout: (state) => {
       state.isAuth = false;
       state.user = null;
-      // localStorage.setItem("user", "");
+      localStorage.setItem("user", "");
     },
   },
 });
@@ -101,15 +101,10 @@ export const auth =
       }
     };
 
-export const checkAuth = (): ThunkAction<void, unknown, unknown, Action<string>> => async (dispatch) => {
-  const strUser = ""
-  // localStorage.getItem("user");
-  let user = null;
-  if (strUser != null) {
-    user = JSON.parse(strUser);
-  }
-  if (user !== null) {
-    dispatch(checkIsAuth({ user, isAuth: true }));
+export const checkAuth = (payload: IUser): ThunkAction<void, unknown, unknown, Action<string>> => async (dispatch) => {
+    
+  if (payload.id !== 0) {
+    dispatch(checkIsAuth({ payload, isAuth: true }));
   }
 };
 
