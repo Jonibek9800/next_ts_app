@@ -1,6 +1,6 @@
 "use client";
 
-import { Layout, Menu, theme, Button, Avatar } from "antd";
+import { Layout, Menu, theme, Button, Avatar, Dropdown } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import { useRouter } from "next/navigation";
 import { UserOutlined } from "@ant-design/icons";
@@ -13,13 +13,25 @@ import {
 import { goToRoute } from "@/shared/store/features/navigate/navigate";
 import { useEffect, useState } from "react";
 import { IUser } from "./interfaces";
+import type { MenuProps } from "antd";
+
+const items: MenuProps["items"] = [
+  // {
+  //   label: "Профиль",
+  //   key: "0",
+  // },
+  {
+    label: "Выход",
+    key: "1",
+  },
+];
 
 interface IItems {
   key: string;
   label: string;
 }
 
-const items: Array<IItems> = [
+const menuList: Array<IItems> = [
   { key: "/", label: "Главная" },
   { key: "/reserv_and_menu", label: "Бронирование и меню" },
   { key: "/about", label: "О нас" },
@@ -28,7 +40,7 @@ const items: Array<IItems> = [
 const Layouts = ({ children }: { children: React.ReactNode }) => {
   const route = useRouter();
   const dispatch = useAppDispatch();
-  const auth = useAppSelector((state) => state.user);
+  const auth = useAppSelector((state) => state.auth);
   let user: IUser = { id: 0, name: "", password: "", age: 0 };
 
   useEffect(() => {
@@ -36,7 +48,9 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
     if (strUser) {
       user = JSON.parse(strUser);
     }
-  }, []);
+  }, [user]);
+  console.log(user);
+
   useEffect(() => {
     dispatch(getUsersList());
     dispatch(checkAuth(user));
@@ -80,11 +94,37 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={["2"]}
-          items={items}
+          items={menuList}
           onClick={handleChangePage}
           style={{ flex: 0.5, minWidth: 0 }}
         />
         {auth.isAuth ? (
+          <div>
+            <Dropdown.Button
+              onClick={() => route.push("/profile")}
+              menu={{ items }}
+            >
+              <Avatar
+                size={27}
+                style={{
+                  backgroundColor: "#87d068",
+                }}
+                icon={<UserOutlined />}
+              />
+            </Dropdown.Button>
+          </div>
+        ) : (
+          <Button
+            onClick={() => {
+              route.push("/auth");
+              dispatch(goToRoute("/auth"));
+            }}
+            icon={<UserOutlined />}
+          >
+            Войти
+          </Button>
+        )}
+        {/* {auth.isAuth ? (
           <div>
             <Avatar
               style={{
@@ -104,7 +144,7 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
           >
             Войти
           </Button>
-        )}
+        )} */}
       </Header>
       <Content>
         <div

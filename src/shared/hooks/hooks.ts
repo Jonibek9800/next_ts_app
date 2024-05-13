@@ -7,11 +7,20 @@ import { IFood } from "../ui/interfaces";
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<AppSelector> = useSelector;
 
-export function useDishes() {
-  const { data, error, isLoading } = useSWR<IFood[]>("/dishes", getDishes);
+interface IDataResponse {
+  data: IFood[],
+  first: number,
+  items: number,
+  last: number,
+  next: number,
+  pages: number
+}
+
+export function useDishes(currentPage: number) {
+  const { data, error, isLoading } = useSWR<IDataResponse>(`/dishes?_page=${currentPage}`, getDishes);
 
   return {
-    dishes: data,
+    data: data,
     error,
     isLoading,
   };

@@ -7,7 +7,7 @@ import { tableSlice } from "./features/table_reservation/table_reservation";
 export const stores = configureStore({
   reducer: {
     dishes: dishesSlise.reducer,
-    user: authSlice.reducer,
+    auth: authSlice.reducer,
     table: tableSlice.reducer,
     navigate: navigateSlice.reducer
   },

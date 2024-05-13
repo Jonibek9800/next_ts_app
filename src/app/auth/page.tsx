@@ -11,7 +11,7 @@ import IsAuth from "@/components/isAuth/isAuth";
 const Login: FunctionComponent = () => {
 
     const dispatch = useAppDispatch();
-    const { errorMessage, isAuth } = useAppSelector(state => state.user)
+    const { errorMessage } = useAppSelector(state => state.auth)
 
     const [formData, setFormData] = useState({
         username: "",
