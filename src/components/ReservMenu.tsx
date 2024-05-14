@@ -1,19 +1,11 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Button, Drawer, Radio, Select, Space } from "antd";
 import FoodMenu from "./FoodMenu";
-import { useAppDispatch, useAppSelector } from "@/shared/hooks/hooks";
-import useSWRMutation from "swr/mutation";
-import {
-  handleDishesOrder,
-  handleNumOfPeople,
-  handleSetReserveTable,
-} from "@/shared/store/features/table_reservation/table_reservation";
-import {
-  getReservList,
-  reservTable,
-} from "@/shared/services/dishes_service/dishes_service";
-import useSWR, { useSWRConfig } from "swr";
-import { IReserTable } from "@/shared/ui/interfaces";
+import { useAppDispatch } from "@/shared/hooks/hooks";
+import { useTableStore } from "@/shared/store/features/table_reservation/table_reservation";
+import { reservTable } from "@/shared/services/dishes_service/dishes_service";
+import { useSWRConfig } from "swr";
+import { useAuthStore } from "@/shared/store/features/auth/auth";
 const tables = [
   {
     value: "столик на одного",
@@ -43,32 +35,43 @@ interface IReservMenuProps {
 }
 
 const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
-  const dispatch = useAppDispatch();
-  const table = useAppSelector((state) => state.table);
+  // const table = useAppSelector((state) => state.table);
+  const {
+    setNumberOfPeople,
+    setDishesOrder,
+    resetTableOrder,
+    totalOrderPrice,
+    orderedTable,
+    orderedFood,
+  } = useTableStore((state) => state);
+  const user = useAuthStore((state) => state.user);
   // const auth = useAppSelector((state) => state.auth);
   const { mutate } = useSWRConfig();
-  
+
   // const { trigger } = useSWRMutation("/reservTable", reservTable);
 
   const handleOrderChange = (event: any) => {
-    dispatch(handleDishesOrder(event.target.value));
+    // dispatch(handleDishesOrder(event.target.value));
+    setDishesOrder(event.target.value);
   };
   const handleTableChange = (value: any) => {
-    dispatch(handleNumOfPeople(value));
+    // dispatch(handleNumOfPeople(value));
+    setNumberOfPeople(value);
   };
 
   const handleOrderedTable = () => {
     const reservTables = {
       id: Date.now(),
-      personId: Date.now(),
-      personName: "Person",
-      peopleQuantity: table.orderedTable.numberOfPeople,
-      orderType: table.orderedTable.dishesOrder,
-      orderedDishes: table.orderedFood,
-      totalPrice: table.totalOrderPrice,
+      personId: user ? user.id : Date.now(),
+      personName: user ? user.name : "Person",
+      peopleQuantity: orderedTable.numberOfPeople,
+      orderType: orderedTable.dishesOrder,
+      orderedDishes: orderedFood,
+      totalPrice: totalOrderPrice,
     };
     mutate("/reservTable", reservTable("reservTable", reservTables));
-    dispatch(handleSetReserveTable(reservTables));
+    // dispatch(handleSetReserveTable(reservTables));
+    resetTableOrder();
   };
 
   return (
@@ -83,7 +86,7 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
           style={{
             width: 180,
           }}
-          value={table.orderedTable.numberOfPeople}
+          value={orderedTable.numberOfPeople}
           title="table"
           onChange={handleTableChange}
           options={tables}
@@ -91,7 +94,7 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
         <Radio.Group
           name="dishesOrder"
           onChange={handleOrderChange}
-          value={table.orderedTable.dishesOrder}
+          value={orderedTable.dishesOrder}
           style={{ padding: 10 }}
         >
           <Space direction="vertical">
@@ -99,11 +102,7 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
             <Radio value="заказать сейчас">Заказать сейчась</Radio>
           </Space>
         </Radio.Group>
-        {table.orderedTable.dishesOrder === "заказать сейчас" ? (
-          <FoodMenu />
-        ) : (
-          ""
-        )}
+        {orderedTable.dishesOrder === "заказать сейчас" ? <FoodMenu /> : ""}
         <div
           style={{
             position: "fixed",
@@ -112,7 +111,7 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
             width: "100%",
           }}
         >
-          {table.totalOrderPrice != 0 && (
+          {totalOrderPrice != 0 && (
             <span
               style={{
                 margin: 10,
@@ -121,7 +120,7 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
                 borderRadius: "10px",
               }}
             >
-              {table.totalOrderPrice} c
+              {totalOrderPrice} c
             </span>
           )}
           <Button onClick={handleOrderedTable} style={{ margin: 10 }}>

@@ -100,7 +100,7 @@
       "totalPrice": 195
     },
     {
-      "id": 1715597286227,
+      "id": "1715597286227",
       "personId": 1715597286227,
       "personName": "Person",
       "peopleQuantity": "столик на одного",
@@ -134,7 +134,7 @@
       "totalPrice": 195
     },
     {
-      "id": 1715598911269,
+      "id": "1715598911269",
       "personId": 1715598911269,
       "personName": "Person",
       "peopleQuantity": "столик на одного",
@@ -179,7 +179,7 @@
       "totalPrice": 321
     },
     {
-      "id": 1715599225988,
+      "id": "1715599225988",
       "personId": 1715599225988,
       "personName": "Person",
       "peopleQuantity": "столик на пятерых",
@@ -224,7 +224,7 @@
       "totalPrice": 356
     },
     {
-      "id": 1715600126344,
+      "id": "1715600126344",
       "personId": 1715600126344,
       "personName": "Person",
       "peopleQuantity": "столик на четверых",
@@ -291,7 +291,7 @@
       "totalPrice": 561
     },
     {
-      "id": 1715600179873,
+      "id": "1715600179873",
       "personId": 1715600179873,
       "personName": "Person",
       "peopleQuantity": "столик на одного",
@@ -336,7 +336,7 @@
       "totalPrice": 321
     },
     {
-      "id": 1715600306300,
+      "id": "1715600306300",
       "personId": 1715600306300,
       "personName": "Person",
       "peopleQuantity": "столик на одного",
@@ -381,7 +381,7 @@
       "totalPrice": 356
     },
     {
-      "id": 1715600685433,
+      "id": "1715600685433",
       "personId": 1715600685433,
       "personName": "Person",
       "peopleQuantity": "столик на одного",
@@ -437,7 +437,7 @@
       "totalPrice": 849
     },
     {
-      "id": 1715601292417,
+      "id": "1715601292417",
       "personId": 1715601292417,
       "personName": "Person",
       "peopleQuantity": "столик на одного",
@@ -469,6 +469,549 @@
         }
       ],
       "totalPrice": 195
+    },
+    {
+      "id": 1715661882277,
+      "personId": 1715661882277,
+      "personName": "Person",
+      "peopleQuantity": "столик на двоих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "./img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41
+          },
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 230
+    },
+    {
+      "id": 1715668317833,
+      "personId": 1715668317833,
+      "personName": "Person",
+      "peopleQuantity": "столик на одного",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 3
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "./img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41
+          },
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 195
+    },
+    {
+      "id": 1715668336592,
+      "personId": 1715668336592,
+      "personName": "Person",
+      "peopleQuantity": "столик на одного",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 105
+    },
+    {
+      "id": 1715668524784,
+      "personId": 1715668524784,
+      "personName": "Person",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 10
+        }
+      ],
+      "totalPrice": 350
+    },
+    {
+      "id": 1715668542568,
+      "personId": 1715668542568,
+      "personName": "Person",
+      "peopleQuantity": "столик на одного",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "./img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41
+          },
+          "quantity": 7
+        }
+      ],
+      "totalPrice": 350
+    },
+    {
+      "id": 1715669424422,
+      "personId": 1715669424422,
+      "personName": "Person",
+      "peopleQuantity": "столик на четверых",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 7
+        }
+      ],
+      "totalPrice": 245
+    },
+    {
+      "id": 1715675316756,
+      "personId": 1715675316756,
+      "personName": "Person",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [],
+      "totalPrice": 0
+    },
+    {
+      "id": 1715675342332,
+      "personId": 1715675342332,
+      "personName": "Person",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [],
+      "totalPrice": 0
+    },
+    {
+      "id": 1715675761293,
+      "personId": 1715675761293,
+      "personName": "Person",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [],
+      "totalPrice": 0
+    },
+    {
+      "id": 1715675769372,
+      "personId": 1715675769372,
+      "personName": "Person",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [],
+      "totalPrice": 0
+    },
+    {
+      "id": 1715676532948,
+      "personId": 1715676532948,
+      "personName": "Person",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 3
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "./img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 225
+    },
+    {
+      "id": 1715676767600,
+      "personId": 1715676767600,
+      "personName": "Person",
+      "peopleQuantity": "столик на одного",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "./img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41
+          },
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 230
+    },
+    {
+      "id": 1715682913313,
+      "personId": "1",
+      "personName": "Jonson",
+      "peopleQuantity": "столик на четверых",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "./img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41
+          },
+          "quantity": 3
+        },
+        {
+          "dish": {
+            "id": "3",
+            "foodName": "Лепешка с томатами и моцареллой",
+            "image": "./img/menu/Tomato_Mozzarella_Flatbread.jpg",
+            "calories": 350,
+            "price": 42,
+            "carbs": 35
+          },
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 356
+    },
+    {
+      "id": 1715683567269,
+      "personId": "1",
+      "personName": "Jonson",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 3
+        },
+        {
+          "dish": {
+            "id": "10",
+            "foodName": "Cыр на гриле",
+            "image": "./img/menu/Grilled_Cheese.webp",
+            "calories": 640,
+            "price": 32,
+            "correctedTerm": "Classic Grilled Cheese",
+            "carbs": 73
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "11",
+            "foodName": "Сэндвич с куриным салатом",
+            "image": "./img/menu/Chicken_Salad_Sandwich.webp",
+            "calories": 700,
+            "price": 35,
+            "carbs": 90
+          },
+          "quantity": 3
+        },
+        {
+          "dish": {
+            "id": "12",
+            "foodName": "Вегетарианский сэндвич",
+            "image": "./img/menu/Veggie_Sandwich.jpg",
+            "price": 27,
+            "calories": 440,
+            "carbs": 65
+          },
+          "quantity": 3
+        },
+        {
+          "dish": {
+            "id": "13",
+            "foodName": "Средиземноморский сэндвич",
+            "image": "./img/menu/Mediterranean_Sandwich.jpg",
+            "price": 40,
+            "calories": 440,
+            "carbs": 65
+          },
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 539
+    },
+    {
+      "id": 1715688630069,
+      "personId": "1",
+      "personName": "Jonson",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "./img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 260
+    },
+    {
+      "id": 1715688733711,
+      "personId": "1",
+      "personName": "Jonson",
+      "peopleQuantity": "столик на троих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "./img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 260
+    },
+    {
+      "id": 1715690416896,
+      "personId": "1",
+      "personName": "Jonson",
+      "peopleQuantity": "столик на двоих",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "./img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41
+          },
+          "quantity": 2
+        },
+        {
+          "dish": {
+            "id": "6",
+            "foodName": "Итальянский ролл Хоги",
+            "image": "./img/menu/Half_Size_Italian_on_Hoagie_Roll.jpg",
+            "price": 27,
+            "calories": 440,
+            "carbs": 38
+          },
+          "quantity": 2
+        },
+        {
+          "dish": {
+            "id": "7",
+            "foodName": "Панини со стейком и белым чеддером",
+            "image": "./img/menu/Steak_and_White_Cheddar_Panini.webp",
+            "price": 70,
+            "calories": 940,
+            "carbs": 79
+          },
+          "quantity": 2
+        },
+        {
+          "dish": {
+            "id": "8",
+            "foodName": "Куриный Панини",
+            "image": "./img/menu/Chicken_Panini.webp",
+            "calories": 750,
+            "price": 48,
+            "correctedTerm": "Frontega Chicken Panini on Focaccia",
+            "carbs": 85
+          },
+          "quantity": 2
+        },
+        {
+          "dish": {
+            "id": "9",
+            "foodName": "Турецкий сэндвич",
+            "image": "./img/menu/Half_Turkey_Sandwich.jpg",
+            "calories": 280,
+            "price": 25,
+            "correctedTerm": "Half Size Turkey Breast Sandwich",
+            "carbs": 32
+          },
+          "quantity": 2
+        },
+        {
+          "dish": {
+            "id": "10",
+            "foodName": "Cыр на гриле",
+            "image": "./img/menu/Grilled_Cheese.webp",
+            "calories": 640,
+            "price": 32,
+            "correctedTerm": "Classic Grilled Cheese",
+            "carbs": 73
+          },
+          "quantity": 2
+        },
+        {
+          "dish": {
+            "id": "11",
+            "foodName": "Сэндвич с куриным салатом",
+            "image": "./img/menu/Chicken_Salad_Sandwich.webp",
+            "calories": 700,
+            "price": 35,
+            "carbs": 90
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 614
     }
   ],
   "users": [

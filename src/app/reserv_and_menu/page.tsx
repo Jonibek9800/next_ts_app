@@ -4,7 +4,7 @@ import FoodMenu from "@/components/FoodMenu";
 import ReservMenu from "@/components/ReservMenu";
 import { useAppDispatch, useDishes } from "@/shared/hooks/hooks";
 import { getReservList } from "@/shared/services/dishes_service/dishes_service";
-import { getDishesList } from "@/shared/store/features/dishes/dishes";
+// import { getDishesList } from "@/shared/store/features/dishes/dishes";
 import { IReserTable } from "@/shared/ui/interfaces";
 import { Button, Image } from "antd";
 import Card from "antd/es/card/Card";
@@ -57,13 +57,6 @@ const MenuAndReserv = () => {
         {open && <ReservMenu onClose={toggleClose} open={open} />}
         <Title level={3}>Меню</Title>
         <FoodMenu />
-        {data ? (
-          <>
-            {data.map((item) => {
-              return <div>Общая стоимость заказа {item.totalPrice}</div>;
-            })}
-          </>
-        ) : null}
       </Content>
       {/* )} */}
     </>

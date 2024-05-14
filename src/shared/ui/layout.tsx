@@ -1,28 +1,27 @@
 "use client";
 
-import { Layout, Menu, theme, Button, Avatar, Dropdown } from "antd";
+import { Layout, Menu, theme, Button, Avatar, Dropdown, Space } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import { useRouter } from "next/navigation";
-import { UserOutlined } from "@ant-design/icons";
-import { useAppDispatch, useAppSelector } from "@/shared/hooks/hooks";
-import {
-  checkAuth,
-  getUsersList,
-  setLogout,
-} from "@/shared/store/features/auth/auth";
+import { UserOutlined, DownOutlined } from "@ant-design/icons";
+import { useAppDispatch } from "@/shared/hooks/hooks";
+import { useAuthStore } from "@/shared/store/features/auth/auth";
 import { goToRoute } from "@/shared/store/features/navigate/navigate";
-import { useEffect, useState } from "react";
-import { IUser } from "./interfaces";
+import { useEffect } from "react";
+import { IReserTable, IUser } from "./interfaces";
 import type { MenuProps } from "antd";
+import useSWR from "swr";
+import { getReservTable } from "../services/dishes_service/dishes_service";
+import { useTableStore } from "../store/features/table_reservation/table_reservation";
 
 const items: MenuProps["items"] = [
-  // {
-  //   label: "Профиль",
-  //   key: "0",
-  // },
+  {
+    label: "Профиль",
+    key: "/profile",
+  },
   {
     label: "Выход",
-    key: "1",
+    key: "/logout",
   },
 ];
 
@@ -40,21 +39,26 @@ const menuList: Array<IItems> = [
 const Layouts = ({ children }: { children: React.ReactNode }) => {
   const route = useRouter();
   const dispatch = useAppDispatch();
-  const auth = useAppSelector((state) => state.auth);
+  const { isAuth, setAuthUser, setLogOut } = useAuthStore((state) => state);
+  const setReservTable = useTableStore((state) => state.setReservList);
+  const { data } = useSWR<IReserTable[]>("reservTable", getReservTable);
+
   let user: IUser = { id: 0, name: "", password: "", age: 0 };
 
-  useEffect(() => {
-    const strUser = localStorage.getItem("user");
-    if (strUser) {
-      user = JSON.parse(strUser);
-    }
-  }, [user]);
-  console.log(user);
+  const strUser = localStorage.getItem("user");
+  if (strUser) {
+    user = JSON.parse(strUser);
+  }
 
   useEffect(() => {
-    dispatch(getUsersList());
-    dispatch(checkAuth(user));
-  }, [dispatch]);
+    if (user) {
+      setAuthUser(user);
+      console.log(data);
+      if (data) {
+        setReservTable(data.filter((table) => table.personId == user.id));
+      }
+    }
+  }, [data]);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -62,6 +66,21 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
   const handleChangePage = (e: any) => {
     const key = e.key;
     route.push(key);
+  };
+
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
+    console.log("click", e);
+    if (e.key === "/logout") {
+      setLogOut();
+      localStorage.setItem("user", JSON.stringify(""));
+    } else {
+      route.push(e.key);
+    }
+  };
+
+  const menuProps: MenuProps = {
+    items,
+    onClick: handleMenuClick,
   };
 
   return (
@@ -98,20 +117,22 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
           onClick={handleChangePage}
           style={{ flex: 0.5, minWidth: 0 }}
         />
-        {auth.isAuth ? (
+        {isAuth ? (
           <div>
-            <Dropdown.Button
-              onClick={() => route.push("/profile")}
-              menu={{ items }}
-            >
-              <Avatar
-                size={27}
-                style={{
-                  backgroundColor: "#87d068",
-                }}
-                icon={<UserOutlined />}
-              />
-            </Dropdown.Button>
+            <Dropdown menu={menuProps}>
+              <Button>
+                <Space>
+                  <Avatar
+                    size={26}
+                    style={{
+                      backgroundColor: "#87d068",
+                    }}
+                    icon={<UserOutlined />}
+                  />
+                  <DownOutlined />
+                </Space>
+              </Button>
+            </Dropdown>
           </div>
         ) : (
           <Button
@@ -124,27 +145,6 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
             Войти
           </Button>
         )}
-        {/* {auth.isAuth ? (
-          <div>
-            <Avatar
-              style={{
-                backgroundColor: "#87d068",
-              }}
-              icon={<UserOutlined />}
-            />{" "}
-            <Button onClick={() => dispatch(setLogout())}>Выйти</Button>
-          </div>
-        ) : (
-          <Button
-            onClick={() => {
-              route.push("/auth");
-              dispatch(goToRoute("/auth"));
-            }}
-            icon={<UserOutlined />}
-          >
-            Войти
-          </Button>
-        )} */}
       </Header>
       <Content>
         <div
