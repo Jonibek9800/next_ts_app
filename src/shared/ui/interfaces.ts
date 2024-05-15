@@ -16,7 +16,7 @@ export interface IUser {
 }
 
 export interface IReserTable {
-    id: number,
+    id?: number,
     personId: number,
     personName: string,
     peopleQuantity: string,

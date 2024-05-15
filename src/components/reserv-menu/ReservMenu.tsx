@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Button, Drawer, Radio, Select, Space } from "antd";
-import FoodMenu from "./FoodMenu";
+import FoodMenu from "../food-menu/FoodMenu";
 import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
 import { reservTable } from "@/shared/services/dishes_service/dishes_service";
 import { useSWRConfig } from "swr";
@@ -34,14 +34,13 @@ interface IReservMenuProps {
 }
 
 const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
-  const {
-    setNumberOfPeople,
-    setDishesOrder,
-    resetTableOrder,
-    totalOrderPrice,
-    orderedTable,
-    orderedFood,
-  } = useTableStore((state) => state);
+  const orderedFood = useTableStore((state) => state.orderedFood);
+  const orderedTable = useTableStore((state) => state.orderedTable);
+  const totalOrderPrice = useTableStore((state) => state.totalOrderPrice);
+  const setNumberOfPeople = useTableStore((state) => state.setNumberOfPeople);
+  const setDishesOrder = useTableStore((state) => state.setDishesOrder);
+  const resetTableOrder = useTableStore((state) => state.resetTableOrder);
+
   const user = useAuthStore((state) => state.user);
   const { mutate } = useSWRConfig();
 
@@ -54,7 +53,6 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
 
   const handleOrderedTable = () => {
     const reservTables = {
-      id: Date.now(),
       personId: user ? user.id : Date.now(),
       personName: user ? user.name : "Person",
       peopleQuantity: orderedTable.numberOfPeople,

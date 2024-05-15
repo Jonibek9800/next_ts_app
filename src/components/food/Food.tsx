@@ -12,13 +12,24 @@ interface IFoodProps {
 }
 
 const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
-  const { setOrderedFood, canseledOrderDishes, setTotalSolary, orderedFood } =
-    useTableStore((state) => state);
+  const orderedFood = useTableStore((state) => state.orderedFood);
+  const setOrderedFood = useTableStore((state) => state.setOrderedFood);
+  const canseledOrderDishes = useTableStore(
+    (state) => state.canseledOrderDishes
+  );
+  const setTotalSolary = useTableStore((state) => state.setTotalSolary);
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
   };
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   const isAddFood = () => {
     const reserFood = orderedFood.filter((dish) => dish.dish.id == food.id);
     if (reserFood.length !== 0) {
@@ -36,13 +47,6 @@ const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
     );
     const newArr = orderedFood.filter((item) => item.dish.id !== dishId);
     canseledOrderDishes(newArr);
-    console.log(newArr);
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
   };
 
   useEffect(() => {

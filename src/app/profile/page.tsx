@@ -8,14 +8,14 @@ import { UserOutlined } from "@ant-design/icons";
 import ReservList from "@/components/reserv-list'/ReservList";
 import { Content } from "antd/es/layout/layout";
 import PrivateRoute from "@/shared/routes/private/PrivateRoute";
+import { getFromStoreg } from "@/shared/utils/utils";
 
 const Profile = () => {
   const [user, setUser] = useState<IUser>();
 
   useEffect(() => {
-    const strUser = localStorage.getItem("user");
-    if (strUser) {
-      setUser(JSON.parse(strUser));
+    if (getFromStoreg("user")) {
+      setUser(getFromStoreg("user"));
     }
   }, []);
 

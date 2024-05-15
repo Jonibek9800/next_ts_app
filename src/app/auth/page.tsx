@@ -1,7 +1,6 @@
 "use client";
 export const dynamic = "force-dynamic";
 
-// import { useAppDispatch, useAppSelector } from "@/shared/hooks/hooks";
 import { useAuthStore } from "@/shared/store/auth/auth";
 import { Button, Checkbox, Form, Input, Layout } from "antd";
 import { FunctionComponent, useEffect, useState } from "react";
@@ -11,13 +10,17 @@ import { getUsers } from "@/shared/services/user_service/user_service";
 import { IUser } from "@/shared/ui/interfaces";
 import { useRouter } from "next/navigation";
 import IsAuth from "@/shared/routes/guest/GuestRoutes";
+import Link from "next/link";
+import Title from "antd/es/typography/Title";
+import { setFromStorage } from "@/shared/utils/utils";
 
 const Login: FunctionComponent = () => {
-  //   const dispatch = useAppDispatch();
-  const { setAuthUser, setErrorMessage, setIsLoading, errorMessage } =
-    useAuthStore((state) => state);
+  const errorMessage = useAuthStore((state) => state.errorMessage);
+  const setAuthUser = useAuthStore((state) => state.setAuthUser);
+  const setIsLoading = useAuthStore((state) => state.setIsLoading);
+  const setErrorMessage = useAuthStore((state) => state.setErrorMessage);
+
   const router = useRouter();
-  //   const { errorMessage } = useAppSelector((state) => state.auth);
   const { data } = useSWR<IUser[]>("/users", getUsers);
   const [formData, setFormData] = useState({
     username: "",
@@ -37,18 +40,24 @@ const Login: FunctionComponent = () => {
     setIsLoading(true);
     try {
       if (data) {
+        let currentUser: IUser = { id: 0, name: "", password: "", age: 0 };
         data.forEach((user) => {
           if (
             user.name === formData.username &&
             user.password === formData.password
           ) {
-            localStorage.setItem("user", JSON.stringify(user));
-            setAuthUser(user);
-            router.push("/");
-          } else {
-            setErrorMessage("Неверный логин или пароль");
+            currentUser = user;
           }
         });
+
+        if (currentUser.id !== 0) {
+          setFromStorage("user", currentUser);
+          setAuthUser(currentUser);
+          router.push("/");
+          setErrorMessage("");
+        } else {
+          setErrorMessage("Неверный логин или пароль");
+        }
       }
     } catch (error) {
       alert(error);
@@ -83,7 +92,7 @@ const Login: FunctionComponent = () => {
         name="normal_login"
         style={{
           margin: "auto",
-          minWidth: 500,
+          maxWidth: 400,
           border: "1px solid grey",
           padding: "50px 20px",
           borderRadius: 15,
@@ -95,7 +104,7 @@ const Login: FunctionComponent = () => {
         onFinish={onFinish}
       >
         <Form.Item>
-          <h1>Login</h1>
+          <Title level={4}>Авторизация</Title>
         </Form.Item>
         <Form.Item name="username">
           <Input
@@ -128,8 +137,8 @@ const Login: FunctionComponent = () => {
             placeholder="Password"
             style={passwordStyle()}
           />
-          {errorMessage != null ? (
-            <span style={{ color: "red" }}>{errorMessage}</span>
+          {errorM != null ? (
+            <span style={{ color: "red" }}>{errorM}</span>
           ) : validate.password && formData.password === "" ? (
             <span style={{ color: "red" }}>Пожалуйста заполните это поле!</span>
           ) : (
@@ -161,8 +170,12 @@ const Login: FunctionComponent = () => {
             className="login-form-button"
             style={{ padding: "0px 30px", margin: 10 }}
           >
-            Log in
+            Войти
           </Button>
+          <div>
+            <span>если нет аккаунта можно здесь </span>
+            <Link href={"/registration"}>Зарегистрироваться</Link>
+          </div>
         </Form.Item>
       </Form>
     </Layout>

@@ -1,13 +1,11 @@
-"use client"
-import CarouselSlider from '@/components/carousel/Carousel';
-import FooterComponent from '@/components/footer/Footer';
-import { Layout } from 'antd';
-import { Content } from 'antd/es/layout/layout';
-import React from 'react';
+"use client";
+import CarouselSlider from "@/components/carousel/Carousel";
+import FooterComponent from "@/components/footer/Footer";
+import { Layout } from "antd";
+import { Content } from "antd/es/layout/layout";
+import React from "react";
 
 const Home: React.FC = () => {
-  
-
   return (
     <Layout style={{ backgroundColor: "#754545" }}>
       <Content
@@ -24,4 +22,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-

@@ -11,6 +11,7 @@ import type { MenuProps } from "antd";
 import useSWR from "swr";
 import { getReservTable } from "../services/dishes_service/dishes_service";
 import { useTableStore } from "../store/table_reservation/table_reservation";
+import { getFromStoreg, setFromStorage } from "../utils/utils";
 
 const items: MenuProps["items"] = [
   {
@@ -36,21 +37,16 @@ const menuList: Array<IItems> = [
 
 const Layouts = ({ children }: { children: React.ReactNode }) => {
   const route = useRouter();
-  const { isAuth, setAuthUser, setLogOut } = useAuthStore((state) => state);
+  const isAuth = useAuthStore((state) => state.isAuth);
+  const setAuthUser = useAuthStore((state) => state.setAuthUser);
+  const setLogOut = useAuthStore((state) => state.setLogOut);
+  const user = useAuthStore((state) => state.user);
   const setReservTable = useTableStore((state) => state.setReservList);
   const { data } = useSWR<IReserTable[]>("reservTable", getReservTable);
 
-  let user: IUser = { id: 0, name: "", password: "", age: 0 };
-
-  const strUser = localStorage.getItem("user");
-  if (strUser) {
-    user = JSON.parse(strUser);
-  }
-
   useEffect(() => {
-    if (user) {
-      setAuthUser(user);
-      console.log(data);
+    if (getFromStoreg("user")) {
+      setAuthUser(getFromStoreg("user"));
       if (data) {
         setReservTable(data.filter((table) => table.personId == user.id));
       }
@@ -69,7 +65,7 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
     console.log("click", e);
     if (e.key === "/logout") {
       setLogOut();
-      localStorage.setItem("user", JSON.stringify(""));
+      setFromStorage("user", "");
     } else {
       route.push(e.key);
     }

@@ -1,7 +1,6 @@
 "use client";
-export const dynamic = "force-dynamic";
-import FoodMenu from "@/components/FoodMenu";
-import ReservMenu from "@/components/ReservMenu";
+import FoodMenu from "@/components/food-menu/FoodMenu";
+import ReservMenu from "@/components/reserv-menu/ReservMenu";
 import { getReservList } from "@/shared/services/dishes_service/dishes_service";
 import { IReserTable } from "@/shared/ui/interfaces";
 import { Button, Image } from "antd";
@@ -14,12 +13,11 @@ import useSWR from "swr";
 
 const MenuAndReserv = () => {
   const [open, setOpen] = useState(false);
-  const { data, error } = useSWR<IReserTable[]>("/reservTable", getReservList);
+  const { data } = useSWR<IReserTable[]>("/reservTable", getReservList);
 
   const toggleClose = () => {
     setOpen((prev) => !prev);
   };
-  console.log(data);
 
   return (
     <>

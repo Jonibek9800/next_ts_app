@@ -1,9 +1,8 @@
 "use client";
 
-import { useAppSelector, useDishes } from "@/shared/hooks/hooks";
+import { useDishes } from "@/shared/hooks/hooks";
 import { FC, useState } from "react";
-import { IFood } from "../shared/ui/interfaces";
-import Food from "./food/Food";
+import Food from "../food/Food";
 import { Pagination } from "antd";
 
 const FoodMenu: FC = () => {
@@ -12,7 +11,6 @@ const FoodMenu: FC = () => {
   
   const changePage = (page: number) => {
     setCurrentPage(page);
-    console.log(page);
   };
 
   const [totalSum, setTotalSum] = useState(0);
