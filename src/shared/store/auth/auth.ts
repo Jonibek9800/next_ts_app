@@ -1,6 +1,6 @@
-import { IUser } from "../../../ui/interfaces";
 import { devtools, persist } from "zustand/middleware";
 import { create } from "zustand";
+import { IUser } from "@/shared/ui/interfaces";
 
 interface IStateType {
   // users?: IUser[];

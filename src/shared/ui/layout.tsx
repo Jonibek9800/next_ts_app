@@ -4,15 +4,13 @@ import { Layout, Menu, theme, Button, Avatar, Dropdown, Space } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import { useRouter } from "next/navigation";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
-import { useAppDispatch } from "@/shared/hooks/hooks";
-import { useAuthStore } from "@/shared/store/features/auth/auth";
-import { goToRoute } from "@/shared/store/features/navigate/navigate";
+import { useAuthStore } from "@/shared/store/auth/auth";
 import { useEffect } from "react";
 import { IReserTable, IUser } from "./interfaces";
 import type { MenuProps } from "antd";
 import useSWR from "swr";
 import { getReservTable } from "../services/dishes_service/dishes_service";
-import { useTableStore } from "../store/features/table_reservation/table_reservation";
+import { useTableStore } from "../store/table_reservation/table_reservation";
 
 const items: MenuProps["items"] = [
   {
@@ -38,7 +36,6 @@ const menuList: Array<IItems> = [
 
 const Layouts = ({ children }: { children: React.ReactNode }) => {
   const route = useRouter();
-  const dispatch = useAppDispatch();
   const { isAuth, setAuthUser, setLogOut } = useAuthStore((state) => state);
   const setReservTable = useTableStore((state) => state.setReservList);
   const { data } = useSWR<IReserTable[]>("reservTable", getReservTable);
@@ -138,7 +135,6 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
           <Button
             onClick={() => {
               route.push("/auth");
-              dispatch(goToRoute("/auth"));
             }}
             icon={<UserOutlined />}
           >

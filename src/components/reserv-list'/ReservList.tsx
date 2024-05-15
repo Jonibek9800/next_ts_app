@@ -1,4 +1,4 @@
-import { useTableStore } from "@/shared/store/features/table_reservation/table_reservation";
+import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
 import { IReserTable } from "@/shared/ui/interfaces";
 
 type IReservProps = {

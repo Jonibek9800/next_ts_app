@@ -1,4 +1,4 @@
-import { useTableStore } from "@/shared/store/features/table_reservation/table_reservation";
+import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
 import { Button, Card, Space, Tooltip } from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
@@ -12,7 +12,6 @@ interface IFoodProps {
 }
 
 const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
-  //   const dispatch = useAppDispatch();
   const { setOrderedFood, canseledOrderDishes, setTotalSolary, orderedFood } =
     useTableStore((state) => state);
   const [quantity, setQuantity] = useState(1);
@@ -36,7 +35,6 @@ const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
         (prev -= removeDish[0].dish.price * removeDish[0].quantity)
     );
     const newArr = orderedFood.filter((item) => item.dish.id !== dishId);
-    // dispatch(cancelOrderedDish(newArr));
     canseledOrderDishes(newArr);
     console.log(newArr);
   };
@@ -48,14 +46,12 @@ const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
   };
 
   useEffect(() => {
-    // dispatch(totalOrderPrice(totalSum));
     setTotalSolary(totalSum);
   }, [totalSum]);
 
   const handleOrder = (dish: IFood) => {
     setTotalSum((prev: number) => (prev += dish.price * quantity));
     const updateOrderedFood = [...orderedFood, { dish, quantity }];
-    // dispatch(handleOrderFood(updateOrderedFood));
     setOrderedFood(updateOrderedFood);
   };
 

@@ -1,11 +1,10 @@
 import React, { FC } from "react";
 import { Button, Drawer, Radio, Select, Space } from "antd";
 import FoodMenu from "./FoodMenu";
-import { useAppDispatch } from "@/shared/hooks/hooks";
-import { useTableStore } from "@/shared/store/features/table_reservation/table_reservation";
+import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
 import { reservTable } from "@/shared/services/dishes_service/dishes_service";
 import { useSWRConfig } from "swr";
-import { useAuthStore } from "@/shared/store/features/auth/auth";
+import { useAuthStore } from "@/shared/store/auth/auth";
 const tables = [
   {
     value: "столик на одного",
@@ -35,7 +34,6 @@ interface IReservMenuProps {
 }
 
 const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
-  // const table = useAppSelector((state) => state.table);
   const {
     setNumberOfPeople,
     setDishesOrder,
@@ -45,17 +43,12 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
     orderedFood,
   } = useTableStore((state) => state);
   const user = useAuthStore((state) => state.user);
-  // const auth = useAppSelector((state) => state.auth);
   const { mutate } = useSWRConfig();
 
-  // const { trigger } = useSWRMutation("/reservTable", reservTable);
-
   const handleOrderChange = (event: any) => {
-    // dispatch(handleDishesOrder(event.target.value));
     setDishesOrder(event.target.value);
   };
   const handleTableChange = (value: any) => {
-    // dispatch(handleNumOfPeople(value));
     setNumberOfPeople(value);
   };
 
@@ -70,7 +63,6 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
       totalPrice: totalOrderPrice,
     };
     mutate("/reservTable", reservTable("reservTable", reservTables));
-    // dispatch(handleSetReserveTable(reservTables));
     resetTableOrder();
   };
 

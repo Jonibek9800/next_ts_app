@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
 import ReservList from "@/components/reserv-list'/ReservList";
 import { Content } from "antd/es/layout/layout";
+import PrivateRoute from "@/shared/routes/private/PrivateRoute";
 
 const Profile = () => {
   const [user, setUser] = useState<IUser>();
@@ -49,4 +50,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default PrivateRoute(Profile);

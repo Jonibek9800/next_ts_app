@@ -2,15 +2,15 @@
 export const dynamic = "force-dynamic";
 
 // import { useAppDispatch, useAppSelector } from "@/shared/hooks/hooks";
-import { useAuthStore } from "@/shared/store/features/auth/auth";
+import { useAuthStore } from "@/shared/store/auth/auth";
 import { Button, Checkbox, Form, Input, Layout } from "antd";
 import { FunctionComponent, useEffect, useState } from "react";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import IsAuth from "@/components/isAuth/isAuth";
 import useSWR from "swr";
 import { getUsers } from "@/shared/services/user_service/user_service";
 import { IUser } from "@/shared/ui/interfaces";
 import { useRouter } from "next/navigation";
+import IsAuth from "@/shared/routes/guest/GuestRoutes";
 
 const Login: FunctionComponent = () => {
   //   const dispatch = useAppDispatch();
