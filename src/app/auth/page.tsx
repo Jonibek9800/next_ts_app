@@ -1,9 +1,13 @@
 "use client";
-export const dynamic = "force-dynamic";
-
 import { useAuthStore } from "@/shared/store/auth/auth";
 import { Button, Checkbox, Form, Input, Layout } from "antd";
-import { FunctionComponent, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  FocusEventHandler,
+  FunctionComponent,
+  useEffect,
+  useState,
+} from "react";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import useSWR from "swr";
 import { getUsers } from "@/shared/services/user_service/user_service";
@@ -12,33 +16,35 @@ import { useRouter } from "next/navigation";
 import IsAuth from "@/shared/routes/guest/GuestRoutes";
 import Link from "next/link";
 import Title from "antd/es/typography/Title";
-import { setFromStorage } from "@/shared/utils/utils";
+import { setFromStorage, validation } from "@/shared/utils/utils";
 
 const Login: FunctionComponent = () => {
+  const router = useRouter();
   const errorMessage = useAuthStore((state) => state.errorMessage);
   const setAuthUser = useAuthStore((state) => state.setAuthUser);
   const setIsLoading = useAuthStore((state) => state.setIsLoading);
   const setErrorMessage = useAuthStore((state) => state.setErrorMessage);
 
-  const router = useRouter();
   const { data } = useSWR<IUser[]>("/users", getUsers);
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     rememberMe: false,
   });
-  const [validate, setValidate] = useState({
-    username: false,
-    password: false,
-  });
-  const [errorM, setErrorM] = useState<string | null>();
-  useEffect(() => {
-    setErrorM(errorMessage);
-  }, [errorMessage]);
+  const [errorM, setErrorM] = useState<Record<string, string>>({});
+
+  const handleFocuse = () => {
+    setErrorM(validation(formData));
+    setErrorMessage("");
+  };
+  const handleBlur = () => {
+    setErrorM(validation(formData));
+  };
 
   const onFinish = () => {
     setIsLoading(true);
     try {
+      setErrorM(validation(formData));
       if (data) {
         let currentUser: IUser = { id: 0, name: "", password: "", age: 0 };
         data.forEach((user) => {
@@ -64,19 +70,7 @@ const Login: FunctionComponent = () => {
     } finally {
       setIsLoading(false);
     }
-
-    // dispatch(auth(formData));
   };
-
-  const userNameStyle = () =>
-    validate.username && formData.username === ""
-      ? { padding: 10, margin: "10px 0px", borderColor: "red" }
-      : { padding: 10, margin: "10px 0px" };
-
-  const passwordStyle = () =>
-    validate.password && formData.password === ""
-      ? { padding: 10, margin: "10px 0px", borderColor: "red" }
-      : { padding: 10, margin: "10px 0px" };
 
   const disableChange = () => {
     if (formData.username === "" || formData.password === "") {
@@ -108,39 +102,41 @@ const Login: FunctionComponent = () => {
         </Form.Item>
         <Form.Item name="username">
           <Input
-            onFocus={() => setValidate({ ...validate, username: false })}
-            onBlur={() => setValidate({ ...validate, username: true })}
+            name="username"
+            onFocus={handleFocuse}
+            onBlur={handleBlur}
             prefix={<UserOutlined className="site-form-item-icon" />}
             onChange={(event) =>
               setFormData({ ...formData, username: event.target.value })
             }
             value={formData.username}
             placeholder="Username"
-            style={userNameStyle()}
+            style={errorM.username ? { borderColor: "red" } : {}}
           />
-          {validate.username && formData.username === "" ? (
-            <span style={{ color: "red" }}>Пожалуйста заполните это поле!</span>
+          {errorM.username ? (
+            <span style={{ color: "red" }}>{errorM.username}</span>
           ) : (
             ""
           )}
         </Form.Item>
         <Form.Item name="password">
           <Input.Password
+            name="password"
             onChange={(event) =>
               setFormData({ ...formData, password: event.target.value })
             }
             value={formData.password}
-            onFocus={() => setValidate({ ...validate, password: false })}
-            onBlur={() => setValidate({ ...validate, password: true })}
+            onFocus={handleFocuse}
+            onBlur={handleBlur}
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
             placeholder="Password"
-            style={passwordStyle()}
+            style={errorM.password ? { borderColor: "red" } : {}}
           />
-          {errorM != null ? (
-            <span style={{ color: "red" }}>{errorM}</span>
-          ) : validate.password && formData.password === "" ? (
-            <span style={{ color: "red" }}>Пожалуйста заполните это поле!</span>
+          {errorM.password ? (
+            <span style={{ color: "red" }}>{errorM.password}</span>
+          ) : errorMessage ? (
+            <span style={{ color: "red" }}>{errorMessage}</span>
           ) : (
             ""
           )}
@@ -148,6 +144,7 @@ const Login: FunctionComponent = () => {
         <Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox
+              // onClick={() => setValidate({ ...validate, remember: true })}
               onChange={(event) =>
                 setFormData({ ...formData, rememberMe: event.target.value })
               }
@@ -155,6 +152,7 @@ const Login: FunctionComponent = () => {
             >
               Remember me
             </Checkbox>
+            {errorM.rememberMe ? <span>{errorM.rememberMe}</span> : null}
           </Form.Item>
 
           <a className="login-form-forgot" href="">
