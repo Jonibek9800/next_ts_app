@@ -1,23 +1,27 @@
+"use client";
 import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
 import { Button, Card, Space, Tooltip } from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { IFood } from "../../shared/ui/interfaces";
 
 interface IFoodProps {
   food: IFood;
-  setTotalSum: Function;
-  totalSum: number;
 }
 
-const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
+const Food: FC<IFoodProps> = ({ food }) => {
   const orderedFood = useTableStore((state) => state.orderedFood);
   const setOrderedFood = useTableStore((state) => state.setOrderedFood);
   const canseledOrderDishes = useTableStore(
     (state) => state.canseledOrderDishes
   );
-  const setTotalSolary = useTableStore((state) => state.setTotalSolary);
+  const incrementTotalPrice = useTableStore(
+    (state) => state.incrementTotalPrice
+  );
+  const decrementTotalPrice = useTableStore(
+    (state) => state.decrementTotalPrice
+  );
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
@@ -41,20 +45,13 @@ const Food: FC<IFoodProps> = ({ food, setTotalSum, totalSum }) => {
 
   const removeOrder = (dishId: number) => {
     const removeDish = orderedFood.filter((item) => item.dish.id === dishId);
-    setTotalSum(
-      (prev: number) =>
-        (prev -= removeDish[0].dish.price * removeDish[0].quantity)
-    );
+    decrementTotalPrice(removeDish[0].dish.price * removeDish[0].quantity);
     const newArr = orderedFood.filter((item) => item.dish.id !== dishId);
     canseledOrderDishes(newArr);
   };
 
-  useEffect(() => {
-    setTotalSolary(totalSum);
-  }, [totalSum]);
-
   const handleOrder = (dish: IFood) => {
-    setTotalSum((prev: number) => (prev += dish.price * quantity));
+    incrementTotalPrice(dish.price * quantity);
     const updateOrderedFood = [...orderedFood, { dish, quantity }];
     setOrderedFood(updateOrderedFood);
   };

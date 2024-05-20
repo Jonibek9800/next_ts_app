@@ -23,8 +23,9 @@ type Actions = {
   setNumberOfPeople: (numberOfPeople: string) => void;
   canseledOrderDishes: (newOrderedDishes: IOrderFood[]) => void;
   resetTableOrder: () => void;
-  setTotalSolary: (totalSum: number) => void;
+  incrementTotalPrice: (totalSum: number) => void;
   setReservList: (reservs: IReserTable[]) => void;
+  decrementTotalPrice: (totalSum: number) => void;
 };
 
 export const useTableStore = create<ITablePropTypes & Actions>((set) => ({
@@ -57,6 +58,9 @@ export const useTableStore = create<ITablePropTypes & Actions>((set) => ({
         dishesOrder: "заказать еду на месте",
       },
     })),
-  setTotalSolary: (totalSum) => set(() => ({ totalOrderPrice: totalSum })),
+  incrementTotalPrice: (totalSum) =>
+    set((state) => ({ totalOrderPrice: (state.totalOrderPrice += totalSum) })),
+  decrementTotalPrice: (totalSum) =>
+    set((state) => ({ totalOrderPrice: (state.totalOrderPrice -= totalSum) })),
   setReservList: (reservs) => set(() => ({ reservList: reservs })),
 }));

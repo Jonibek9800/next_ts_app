@@ -1,8 +1,8 @@
 import { IReserTable } from "@/shared/ui/interfaces";
 import { instance } from "..";
 
-export const getDishes = async (path: string) => {
-  const response = await instance.get(path);
+export const getDishes = async (path: string, page: number) => {
+  const response = await instance.get(path + `?_page=${page}`);
   return response.data;
 };
 

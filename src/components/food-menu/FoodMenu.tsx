@@ -1,22 +1,19 @@
-"use client";
-
-import { useDishes } from "@/shared/hooks/hooks";
-import { FC, useState } from "react";
 import Food from "../food/Food";
-import { Pagination } from "antd";
+import { getDishes } from "@/shared/services/dishes_service/dishes_service";
+import { IFood } from "@/shared/ui/interfaces";
+import PaginationWidget from "../pagination-widget/PaginationWidget";
+interface IDataProps {
+  data: IFood[];
+  items: number;
+}
 
-const FoodMenu: FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const { data, isLoading } = useDishes(currentPage);
-  
-  const changePage = (page: number) => {
-    setCurrentPage(page);
-  };
+const FoodMenu = async () => {
+  const data: IDataProps = await getDishes("/dishes", 1);
+  // console.log("context:", searchParams);
 
-  const [totalSum, setTotalSum] = useState(0);
   return (
     <>
-      {isLoading ? (
+      {!data ? (
         <div>Loading...</div>
       ) : (
         <>
@@ -28,25 +25,13 @@ const FoodMenu: FC = () => {
               justifyContent: "center",
             }}
           >
-            {data?.data !== undefined
+            {data !== undefined
               ? data.data.map((dish) => {
-                  return (
-                    <Food
-                      key={dish.id}
-                      food={dish}
-                      setTotalSum={setTotalSum}
-                      totalSum={totalSum}
-                    />
-                  );
+                  return <Food key={dish.id} food={dish} />;
                 })
               : null}
           </div>
-          <Pagination
-          style={{marginTop: 10}}
-            current={currentPage}
-            total={data?.items}
-            onChange={changePage}
-          />
+          <PaginationWidget data={data.data} />
         </>
       )}
     </>
