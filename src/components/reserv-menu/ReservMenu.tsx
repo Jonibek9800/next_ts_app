@@ -1,10 +1,11 @@
+"use clent";
 import React, { FC } from "react";
 import { Button, Drawer, Radio, Select, Space } from "antd";
-import FoodMenu from "../food-menu/FoodMenu";
 import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
 import { reservTable } from "@/shared/services/dishes_service/dishes_service";
-import { useSWRConfig } from "swr";
 import { useAuthStore } from "@/shared/store/auth/auth";
+import WrapperServerComponent from "@/shared/utils/wraper-server-component";
+import FoodMenu from "../food-menu/FoodMenu";
 const tables = [
   {
     value: "столик на одного",
@@ -31,9 +32,10 @@ const tables = [
 interface IReservMenuProps {
   onClose: any;
   open: boolean;
+  page: string;
 }
 
-const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
+const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, page }) => {
   const orderedFood = useTableStore((state) => state.orderedFood);
   const orderedTable = useTableStore((state) => state.orderedTable);
   const totalOrderPrice = useTableStore((state) => state.totalOrderPrice);
@@ -42,7 +44,6 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
   const resetTableOrder = useTableStore((state) => state.resetTableOrder);
 
   const user = useAuthStore((state) => state.user);
-  const { mutate } = useSWRConfig();
 
   const handleOrderChange = (event: any) => {
     setDishesOrder(event.target.value);
@@ -60,7 +61,7 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
       orderedDishes: orderedFood,
       totalPrice: totalOrderPrice,
     };
-    mutate("/reservTable", reservTable("reservTable", reservTables));
+    reservTable("reservTable", reservTables);
     resetTableOrder();
   };
 
@@ -92,7 +93,13 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open }) => {
             <Radio value="заказать сейчас">Заказать сейчась</Radio>
           </Space>
         </Radio.Group>
-        {orderedTable.dishesOrder === "заказать сейчас" ? <FoodMenu /> : ""}
+        {orderedTable.dishesOrder === "заказать сейчас"
+          ? // <FoodMenu page={page} />
+            // <WrapperServerComponent>
+            //   <FoodMenu page={page} />
+            // </WrapperServerComponent>"
+            ""
+          : ""}
         <div
           style={{
             position: "fixed",

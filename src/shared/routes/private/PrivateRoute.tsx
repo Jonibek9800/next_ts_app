@@ -1,7 +1,7 @@
 "use client";
 import { useAuthStore } from "@/shared/store/auth/auth";
 import { redirect } from "next/navigation";
-import { ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 
 const PrivateRoute = (Component: any) => {
   return function PrivateRoute() {

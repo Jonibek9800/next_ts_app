@@ -2,14 +2,13 @@ import Food from "../food/Food";
 import { getDishes } from "@/shared/services/dishes_service/dishes_service";
 import { IFood } from "@/shared/ui/interfaces";
 import PaginationWidget from "../pagination-widget/PaginationWidget";
-interface IDataProps {
+export interface IDataProps {
   data: IFood[];
   items: number;
 }
 
-const FoodMenu = async () => {
-  const data: IDataProps = await getDishes("/dishes", 1);
-  // console.log("context:", searchParams);
+const FoodMenu = async ({ page }: { page: string }) => {
+  const data: IDataProps = await getDishes("/dishes", page ?? "1");
 
   return (
     <>
@@ -31,7 +30,7 @@ const FoodMenu = async () => {
                 })
               : null}
           </div>
-          <PaginationWidget data={data.data} />
+          <PaginationWidget data={data} />
         </>
       )}
     </>

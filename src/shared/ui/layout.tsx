@@ -1,6 +1,15 @@
 "use client";
 
-import { Layout, Menu, theme, Button, Avatar, Dropdown, Space } from "antd";
+import {
+  Layout,
+  Menu,
+  theme,
+  Button,
+  Avatar,
+  Dropdown,
+  Space,
+  Image,
+} from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import { useRouter } from "next/navigation";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
@@ -89,14 +98,14 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
           justifyContent: "space-between",
         }}
       >
-        <img
+        <Image
           style={{
             maxWidth: 60,
             backgroundColor: "#e6e2d8",
             cursor: "pointer",
             flex: 2,
           }}
-          src="./img/resto_logo.png"
+          src="/img/resto_logo.png"
           alt="example"
           onClick={() => {
             route.push("/");

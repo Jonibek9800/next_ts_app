@@ -5,7 +5,7 @@ import Title from "antd/es/typography/Title";
 import ReservMenu from "../reserv-menu/ReservMenu";
 import { useState } from "react";
 
-const ReservWidget = () => {
+const ReservWidget = ({page}: {page: string}) => {
   const [open, setOpen] = useState(false);
 
   const toggleClose = () => {
@@ -26,7 +26,7 @@ const ReservWidget = () => {
           title={<Button onClick={toggleClose}>Забронировать столик</Button>}
         />
       </Card>
-      {open && <ReservMenu onClose={toggleClose} open={open} />}
+      {open && <ReservMenu onClose={toggleClose} open={open} page={page}/>}
     </>
   );
 };

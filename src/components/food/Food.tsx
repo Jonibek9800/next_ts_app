@@ -1,16 +1,21 @@
 "use client";
 import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
-import { Button, Card, Space, Tooltip } from "antd";
+import { Button, Card, Image, Space, Tooltip } from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
 import { FC, useState } from "react";
 import { IFood } from "../../shared/ui/interfaces";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface IFoodProps {
   food: IFood;
 }
 
 const Food: FC<IFoodProps> = ({ food }) => {
+  const { replace } = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const params = new URLSearchParams(searchParams);
   const orderedFood = useTableStore((state) => state.orderedFood);
   const setOrderedFood = useTableStore((state) => state.setOrderedFood);
   const canseledOrderDishes = useTableStore(
@@ -56,12 +61,17 @@ const Food: FC<IFoodProps> = ({ food }) => {
     setOrderedFood(updateOrderedFood);
   };
 
+  const handleInfo = () => {
+    params.set("query", String(food.id));
+    replace(`${pathname}/${food.id}?${params.toString()}`);
+  };
+
   return (
     <Card
       key={food.id}
-      style={{ width: "300px", textAlign: "start" }}
+      style={{ width: "300px", textAlign: "start", cursor: "pointer" }}
       cover={
-        <img
+        <Image
           style={{ height: 200, borderRadius: 10 }}
           alt={food.foodName}
           src={food.image}
@@ -77,9 +87,18 @@ const Food: FC<IFoodProps> = ({ food }) => {
         }
         description={`Калорийность ${food.calories}`}
       />
-      <Title level={4} style={{ fontSize: 16 }}>
-        {food.price} c
-      </Title>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Title level={4} style={{ fontSize: 16 }}>
+          {food.price} c
+        </Title>
+        <Button onClick={handleInfo}>Подробности</Button>
+      </div>
       <div>
         {!isAddFood() ? (
           <Space>

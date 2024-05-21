@@ -1,21 +1,19 @@
-import { getReservTable } from "@/shared/services/dishes_service/dishes_service";
+"use client"
+
 import { useAuthStore } from "@/shared/store/auth/auth";
 import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
 import { IReserTable } from "@/shared/ui/interfaces";
 import { useEffect } from "react";
-import useSWR from "swr";
 
-const ReservList = () => {
-  const { data } = useSWR<IReserTable[]>("reservTable", getReservTable);
+const List = ({ list }: { list: IReserTable[] }) => {
   const setReservList = useTableStore((state) => state.setReservList);
   const reserList = useTableStore((state) => state.reservList);
   const user = useAuthStore((state) => state.user);
   useEffect(() => {
-    if (data) {
-      setReservList(data.filter((table) => table.personId == user.id));
+    if (list) {
+      setReservList(list.filter((table) => table.personId == user.id));
     }
-  }, [data]);
-
+  }, [list, user.id, setReservList]);
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
       {reserList.map((table) => {
@@ -35,4 +33,4 @@ const ReservList = () => {
   );
 };
 
-export default ReservList;
+export default List;
