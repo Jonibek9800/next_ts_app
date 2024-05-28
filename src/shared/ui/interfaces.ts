@@ -22,6 +22,15 @@ export interface IReserTable {
   personName: string;
   peopleQuantity: string;
   orderType: string;
-  orderedDishes: { quantity: number; dish: IFood }[];
+  orderedDishes: { quantity: number; dish: IProduct }[];
   totalPrice: number;
+}
+
+export interface IProduct {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  thumbnail: string;
 }

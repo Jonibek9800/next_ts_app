@@ -1,10 +1,10 @@
-import { IFood, IReserTable } from "../../ui/interfaces";
+import { IFood, IProduct, IReserTable } from "../../ui/interfaces";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 interface IOrderFood {
   quantity: number;
-  dish: IFood;
+  dish: IProduct;
 }
 
 interface ITablePropTypes {

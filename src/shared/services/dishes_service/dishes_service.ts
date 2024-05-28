@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 import { cache } from "react";
 
 export const getDishes = cache(async (path: string, page: string) => {
-  const response = await instance.get(path + `?_page=${page}`,);
+  const response = await instance.get(path + `?page=${page}`);
   return response.data;
 });
 

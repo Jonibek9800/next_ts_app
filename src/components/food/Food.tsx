@@ -4,11 +4,11 @@ import { Button, Card, Image, Space, Tooltip } from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
 import { FC, useState } from "react";
-import { IFood } from "../../shared/ui/interfaces";
+import { IFood, IProduct } from "../../shared/ui/interfaces";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface IFoodProps {
-  food: IFood;
+  food: IProduct;
 }
 
 const Food: FC<IFoodProps> = ({ food }) => {
@@ -55,7 +55,7 @@ const Food: FC<IFoodProps> = ({ food }) => {
     canseledOrderDishes(newArr);
   };
 
-  const handleOrder = (dish: IFood) => {
+  const handleOrder = (dish: IProduct) => {
     incrementTotalPrice(dish.price * quantity);
     const updateOrderedFood = [...orderedFood, { dish, quantity }];
     setOrderedFood(updateOrderedFood);
@@ -73,19 +73,19 @@ const Food: FC<IFoodProps> = ({ food }) => {
       cover={
         <Image
           style={{ height: 200, borderRadius: 10 }}
-          alt={food.foodName}
-          src={food.image}
+          alt={food.title}
+          src={food.thumbnail}
         />
       }
     >
       <Meta
         style={{ fontSize: 16 }}
         title={
-          <Tooltip title={food.foodName}>
-            <span style={{ fontSize: 20 }}>{food.foodName}</span>
+          <Tooltip title={food.title}>
+            <span style={{ fontSize: 20 }}>{food.title}</span>
           </Tooltip>
         }
-        description={`Калорийность ${food.calories}`}
+        description={`Калорийность ${food.price}`}
       />
       <div
         style={{
