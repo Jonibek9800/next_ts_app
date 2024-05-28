@@ -1,11 +1,14 @@
+"use server";
+
 import { IReserTable } from "@/shared/ui/interfaces";
 import { instance } from "..";
 import { revalidatePath } from "next/cache";
+import { cache } from "react";
 
-export const getDishes = async (path: string, page: string) => {
-  const response = await instance.get(path + `?_page=${page}`);
+export const getDishes = cache(async (path: string, page: string) => {
+  const response = await instance.get(path + `?_page=${page}`,);
   return response.data;
-};
+});
 
 export const getDishesById = async (path: string, id: string) => {
   const response = await instance.get(path + `/${id}`);
@@ -17,12 +20,12 @@ export const getReservList = async (path: string) => {
   return response.data;
 };
 
-export const reservTable = async (key: string, arg: IReserTable) => {
+export const reservTable = cache(async (key: string, arg: IReserTable) => {
   await instance.post(key, arg);
   revalidatePath(key);
-};
+});
 
-export const getReservTable = async (path: string) => {
+export const getReservTable = cache(async (path: string) => {
   const response = await instance.get(path);
   return response.data;
-};
+});

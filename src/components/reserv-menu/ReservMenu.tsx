@@ -4,8 +4,7 @@ import { Button, Drawer, Radio, Select, Space } from "antd";
 import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
 import { reservTable } from "@/shared/services/dishes_service/dishes_service";
 import { useAuthStore } from "@/shared/store/auth/auth";
-import WrapperServerComponent from "@/shared/utils/wraper-server-component";
-import FoodMenu from "../food-menu/FoodMenu";
+import { useRouter } from "next/navigation";
 const tables = [
   {
     value: "столик на одного",
@@ -36,6 +35,7 @@ interface IReservMenuProps {
 }
 
 const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, page }) => {
+  const router = useRouter();
   const orderedFood = useTableStore((state) => state.orderedFood);
   const orderedTable = useTableStore((state) => state.orderedTable);
   const totalOrderPrice = useTableStore((state) => state.totalOrderPrice);
@@ -61,6 +61,7 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, page }) => {
       orderedDishes: orderedFood,
       totalPrice: totalOrderPrice,
     };
+    // router.refresh();
     reservTable("reservTable", reservTables);
     resetTableOrder();
   };

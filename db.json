@@ -272,7 +272,7 @@
       "totalPrice": 614
     },
     {
-      "id": 1715752928665,
+      "id": "1715752928665",
       "personId": "2",
       "personName": "Daemon",
       "peopleQuantity": "столик на четверых",
@@ -328,7 +328,7 @@
       "totalPrice": 580
     },
     {
-      "id": 1715753004545,
+      "id": "1715753004545",
       "personId": "3",
       "personName": "Jackson",
       "peopleQuantity": "столик на двоих",
@@ -622,6 +622,445 @@
         }
       ],
       "totalPrice": 476
+    },
+    {
+      "id": "d129",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на четверых",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "3",
+            "foodName": "Лепешка с томатами и моцареллой",
+            "image": "/img/menu/Tomato_Mozzarella_Flatbread.jpg",
+            "calories": 350,
+            "price": 42,
+            "carbs": 35,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 1
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "/img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "6",
+            "foodName": "Итальянский ролл Хоги",
+            "image": "/img/menu/Half_Size_Italian_on_Hoagie_Roll.jpg",
+            "price": 27,
+            "calories": 440,
+            "carbs": 38,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 270
+    },
+    {
+      "id": "1519",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на одного",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "/img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "3",
+            "foodName": "Лепешка с томатами и моцареллой",
+            "image": "/img/menu/Tomato_Mozzarella_Flatbread.jpg",
+            "calories": 350,
+            "price": 42,
+            "carbs": 35,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "7",
+            "foodName": "Панини со стейком и белым чеддером",
+            "image": "/img/menu/Steak_and_White_Cheddar_Panini.webp",
+            "price": 70,
+            "calories": 940,
+            "carbs": 79,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 6
+        }
+      ],
+      "totalPrice": 708
+    },
+    {
+      "id": "d764",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на одного",
+      "orderType": "заказать еду на месте",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "5",
+            "foodName": "Клюквенные лепешки из индейки",
+            "image": "/img/menu/Roasted_Turkey_Cranberry_Flatbread.jpg",
+            "price": 37,
+            "calories": 310,
+            "carbs": 36,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 5
+        },
+        {
+          "dish": {
+            "id": "6",
+            "foodName": "Итальянский ролл Хоги",
+            "image": "/img/menu/Half_Size_Italian_on_Hoagie_Roll.jpg",
+            "price": 27,
+            "calories": 440,
+            "carbs": 38,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "/img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 5
+        }
+      ],
+      "totalPrice": 443
+    },
+    {
+      "id": "4a7a",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на четверых",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "/img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "/img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "5",
+            "foodName": "Клюквенные лепешки из индейки",
+            "image": "/img/menu/Roasted_Turkey_Cranberry_Flatbread.jpg",
+            "price": 37,
+            "calories": 310,
+            "carbs": 36,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 371
+    },
+    {
+      "id": "eca9",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на одного",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "/img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 5
+        },
+        {
+          "dish": {
+            "id": "3",
+            "foodName": "Лепешка с томатами и моцареллой",
+            "image": "/img/menu/Tomato_Mozzarella_Flatbread.jpg",
+            "calories": 350,
+            "price": 42,
+            "carbs": 35,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "5",
+            "foodName": "Клюквенные лепешки из индейки",
+            "image": "/img/menu/Roasted_Turkey_Cranberry_Flatbread.jpg",
+            "price": 37,
+            "calories": 310,
+            "carbs": 36,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 5
+        }
+      ],
+      "totalPrice": 503
+    },
+    {
+      "id": "f505",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на четверых",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "15",
+            "foodName": "Современный греческий салат с киноа",
+            "price": 30,
+            "image": "/img/menu/Modern_Greek_Salad_with_Quinoa.jpeg",
+            "foodType": "Salad",
+            "calories": 530,
+            "carbs": 29,
+            "sideItem": true,
+            "dressingItem": true,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "16",
+            "foodName": "Куриные Тортеллини Альфредо",
+            "image": "/img/menu/Chicken_Tortellini_Alfredo.jpg",
+            "price": 70,
+            "calories": 750,
+            "carbs": 68,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 5
+        },
+        {
+          "dish": {
+            "id": "12",
+            "foodName": "Вегетарианский сэндвич",
+            "image": "/img/menu/Veggie_Sandwich.jpg",
+            "price": 27,
+            "calories": 440,
+            "carbs": 65,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "13",
+            "foodName": "Средиземноморский сэндвич",
+            "image": "/img/menu/Mediterranean_Sandwich.jpg",
+            "price": 40,
+            "calories": 440,
+            "carbs": 65,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 738
+    },
+    {
+      "id": "c55f",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на четверых",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "/img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 5
+        },
+        {
+          "dish": {
+            "id": "3",
+            "foodName": "Лепешка с томатами и моцареллой",
+            "image": "/img/menu/Tomato_Mozzarella_Flatbread.jpg",
+            "calories": 350,
+            "price": 42,
+            "carbs": 35,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "5",
+            "foodName": "Клюквенные лепешки из индейки",
+            "image": "/img/menu/Roasted_Turkey_Cranberry_Flatbread.jpg",
+            "price": 37,
+            "calories": 310,
+            "carbs": 36,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 466
+    },
+    {
+      "id": "bf57",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на четверых",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "1",
+            "foodName": "BBQ Куриные лепешки",
+            "image": "/img/menu/BBQ_Chicken_Flatbread.jpg",
+            "foodType": "Sandwich",
+            "price": 35,
+            "calories": 380,
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "/img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        },
+        {
+          "dish": {
+            "id": "3",
+            "foodName": "Лепешка с томатами и моцареллой",
+            "image": "/img/menu/Tomato_Mozzarella_Flatbread.jpg",
+            "calories": 350,
+            "price": 42,
+            "carbs": 35,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 428
+    },
+    {
+      "id": "3020",
+      "personId": "7571",
+      "personName": "Jony",
+      "peopleQuantity": "столик на одного",
+      "orderType": "заказать сейчас",
+      "orderedDishes": [
+        {
+          "dish": {
+            "id": "2",
+            "foodName": "Куриные лепешки",
+            "image": "/img/menu/Chicken_Flatbread.jpg",
+            "calories": 380,
+            "price": 30,
+            "correctedTerm": "BBQ Chicken Flatbread",
+            "carbs": 41,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 5
+        },
+        {
+          "dish": {
+            "id": "3",
+            "foodName": "Лепешка с томатами и моцареллой",
+            "image": "/img/menu/Tomato_Mozzarella_Flatbread.jpg",
+            "calories": 350,
+            "price": 42,
+            "carbs": 35,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 5
+        },
+        {
+          "dish": {
+            "id": "6",
+            "foodName": "Итальянский ролл Хоги",
+            "image": "/img/menu/Half_Size_Italian_on_Hoagie_Roll.jpg",
+            "price": 27,
+            "calories": 440,
+            "carbs": 38,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+          },
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 468
     }
   ],
   "users": [
@@ -825,6 +1264,24 @@
       "price": 29,
       "calories": 470,
       "carbs": 36,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+    },
+    {
+      "id": "18",
+      "foodName": "Macaroni",
+      "image": "/img/menu/Macaroni_and_Cheese.jpg",
+      "price": 40,
+      "calories": 800,
+      "carbs": 56,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
+    },
+    {
+      "id": "19",
+      "foodName": "Macaroni",
+      "image": "/img/menu/Macaroni_and_Cheese.jpg",
+      "price": 40,
+      "calories": 800,
+      "carbs": 56,
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium! Sunt enim repellendus veniam neque provident quod alias sed accusantium quam laudantium culpa mollitia, magnam praesentium ea modi unde sint!"
     }
   ]

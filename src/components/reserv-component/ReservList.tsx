@@ -1,10 +1,10 @@
 import { getReservTable } from "@/shared/services/dishes_service/dishes_service";
-import { IReserTable } from "@/shared/ui/interfaces";
-import useSWR from "swr";
 import List from "./list";
 
+export const revalidate = 5;
+
 const ReservList = async () => {
-  const data = await getReservTable("reservTable");
+  const data = await getReservTable("/reservTable");
 
   return <List list={data} />;
 };

@@ -6,6 +6,7 @@ export interface IDataProps {
   data: IFood[];
   items: number;
 }
+export const revalidate = 10;
 
 const FoodMenu = async ({ page }: { page: string }) => {
   const data: IDataProps = await getDishes("/dishes", page ?? "1");
