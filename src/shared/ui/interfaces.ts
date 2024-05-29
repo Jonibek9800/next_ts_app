@@ -22,7 +22,7 @@ export interface IReserTable {
   personName: string;
   peopleQuantity: string;
   orderType: string;
-  orderedDishes: { quantity: number; dish: IProduct }[];
+  orderedDishes: { quantity: number; dish: IFood }[];
   totalPrice: number;
 }
 
