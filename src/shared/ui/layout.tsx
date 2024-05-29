@@ -15,11 +15,7 @@ import { useRouter } from "next/navigation";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
 import { useAuthStore } from "@/shared/store/auth/auth";
 import { useEffect } from "react";
-import { IReserTable, IUser } from "./interfaces";
 import type { MenuProps } from "antd";
-import useSWR from "swr";
-import { getReservTable } from "../services/dishes_service/dishes_service";
-import { useTableStore } from "../store/table_reservation/table_reservation";
 import { getFromStoreg, setFromStorage } from "../utils/utils";
 
 const items: MenuProps["items"] = [
@@ -50,17 +46,18 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
   const setAuthUser = useAuthStore((state) => state.setAuthUser);
   const setLogOut = useAuthStore((state) => state.setLogOut);
   const user = useAuthStore((state) => state.user);
-  const setReservTable = useTableStore((state) => state.setReservList);
-  const { data } = useSWR<IReserTable[]>("reserv_table", getReservTable);
+  // const setReservTable = useTableStore((state) => state.setReservList);
+  // const { data } = useSWR<IReserTable[]>("/reserv_table", getReservTable);
 
   useEffect(() => {
     if (getFromStoreg("user")) {
       setAuthUser(getFromStoreg("user"));
-      if (data) {
-        setReservTable(data.filter((table) => table.personId == user.id));
-      }
+      // if (data) {
+      //   setReservTable(data.filter((table) => table.personId == user.id));
+      // }
     }
-  }, [data]);
+  }, [setAuthUser]);
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();

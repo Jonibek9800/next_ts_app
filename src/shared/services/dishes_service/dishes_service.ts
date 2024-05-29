@@ -15,10 +15,10 @@ export const getDishesById = async (path: string, id: string) => {
   return response.data;
 };
 
-export const getReservList = async (path: string) => {
+export const getReservList = cache(async (path: string) => {
   const response = await instance.get(path);
   return response.data;
-};
+});
 
 export const reservTable = cache(async (key: string, arg: IReserTable) => {
   await instance.post(key, arg);

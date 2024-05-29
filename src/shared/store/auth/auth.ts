@@ -7,6 +7,7 @@ interface IStateType {
   isAuth: boolean;
   errorMessage: string | null;
   user: IUser;
+  users: IUser[];
 }
 
 const initialState: IStateType = {
@@ -14,6 +15,7 @@ const initialState: IStateType = {
   isAuth: false,
   errorMessage: null,
   user: { id: 0, age: 0, name: "", password: "" },
+  users: [],
 };
 
 type Actions = {
@@ -21,6 +23,7 @@ type Actions = {
   setAuthUser: (initUser: IUser) => void;
   setErrorMessage: (error: string) => void;
   setLogOut: () => void;
+  setUserList: (payload: IUser[]) => void;
 };
 
 export const useAuthStore = create<IStateType & Actions>()(
@@ -31,7 +34,7 @@ export const useAuthStore = create<IStateType & Actions>()(
         isAuth: false,
         errorMessage: null,
         user: { id: 0, age: 0, name: "", password: "" },
-
+        users: [],
         setIsLoading: (isLoad) => set(() => ({ isLoading: isLoad })),
         setAuthUser: (initUser) =>
           set(() => ({ user: initUser, isAuth: true })),
@@ -41,6 +44,7 @@ export const useAuthStore = create<IStateType & Actions>()(
             user: { id: 0, age: 0, name: "", password: "" },
             isAuth: false,
           })),
+        setUserList: (payload) => set(() => ({ users: payload })),
       }),
       { name: "authStore" }
     )
