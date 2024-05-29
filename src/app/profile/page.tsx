@@ -1,5 +1,4 @@
 "use client";
-
 import Title from "antd/es/typography/Title";
 import ReservList from "@/components/reserv-component/ReservList";
 import { Content } from "antd/es/layout/layout";

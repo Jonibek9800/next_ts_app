@@ -5,7 +5,7 @@ import PaginationWidget from "../pagination-widget/PaginationWidget";
 import { BASE_API_URL } from "@/shared/services";
 export interface IDataProps {
   data: IFood[];
-  items: number;
+  total: number;
 }
 export const revalidate = 10;
 
@@ -14,6 +14,7 @@ const FoodMenu = async ({ page }: { page: string }) => {
     return <h1>Not found Menu</h1>;
   }
   const data: IDataProps = await getDishes("/dishes", page ?? "1");
+  console.log(data);
 
   return (
     <>

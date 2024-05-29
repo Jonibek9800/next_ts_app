@@ -4,7 +4,7 @@ import List from "./list";
 export const revalidate = 5;
 
 const ReservList = async () => {
-  const data = await getReservTable("/reservTable");
+  const data = await getReservTable("/reserv_table");
 
   return <List list={data} />;
 };

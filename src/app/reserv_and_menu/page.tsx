@@ -1,4 +1,4 @@
-// "use client"
+"use server"
 import FoodMenu from "@/components/food-menu/FoodMenu";
 import ReservWidget from "@/components/reserv-widget/ReservWidget";
 import { Content } from "antd/es/layout/layout";
