@@ -51,7 +51,7 @@ const Layouts = ({ children }: { children: React.ReactNode }) => {
   const setLogOut = useAuthStore((state) => state.setLogOut);
   const user = useAuthStore((state) => state.user);
   const setReservTable = useTableStore((state) => state.setReservList);
-  const { data } = useSWR<IReserTable[]>("reservTable", getReservTable);
+  const { data } = useSWR<IReserTable[]>("reserv_table", getReservTable);
 
   useEffect(() => {
     if (getFromStoreg("user")) {

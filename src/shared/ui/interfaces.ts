@@ -25,12 +25,3 @@ export interface IReserTable {
   orderedDishes: { quantity: number; dish: IFood }[];
   totalPrice: number;
 }
-
-// export interface IProduct {
-//   id: number;
-//   title: string;
-//   description: string;
-//   price: number;
-//   category: string;
-//   thumbnail: string;
-// }
