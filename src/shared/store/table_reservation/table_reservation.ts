@@ -4,7 +4,7 @@ import { devtools, persist } from "zustand/middleware";
 
 interface IOrderFood {
   quantity: number;
-  dish: IProduct;
+  dish: IFood;
 }
 
 interface ITablePropTypes {

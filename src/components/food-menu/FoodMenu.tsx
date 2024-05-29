@@ -3,21 +3,15 @@ import { getDishes } from "@/shared/services/dishes_service/dishes_service";
 import { IFood, IProduct } from "@/shared/ui/interfaces";
 import PaginationWidget from "../pagination-widget/PaginationWidget";
 export interface IDataProps {
-  products: IProduct[];
-  total: number;
+  data: IProduct[];
+  items: number;
 }
 export const revalidate = 10;
 
 const FoodMenu = async ({ page }: { page: string }) => {
-  const data: IDataProps = await getDishes(
-    "/products/category/groceries",
-    page ?? "1"
-  );
-  const paginateData = () => {
-    const PER_PAGE = 10;
-    const startIndex = (Number(page) - 1) * PER_PAGE;
-    return data.products.slice(startIndex, PER_PAGE);
-  };
+  const data = await getDishes("/dishes", page ?? "1");
+  console.log(data);
+
   return (
     <>
       {!data ? (
@@ -33,7 +27,7 @@ const FoodMenu = async ({ page }: { page: string }) => {
             }}
           >
             {data !== undefined
-              ? paginateData().map((dish) => {
+              ? data.data.map((dish: any) => {
                   return <Food key={dish.id} food={dish} />;
                 })
               : null}

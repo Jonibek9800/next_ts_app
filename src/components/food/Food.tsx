@@ -8,7 +8,7 @@ import { IFood, IProduct } from "../../shared/ui/interfaces";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface IFoodProps {
-  food: IProduct;
+  food: IFood;
 }
 
 const Food: FC<IFoodProps> = ({ food }) => {
@@ -55,7 +55,7 @@ const Food: FC<IFoodProps> = ({ food }) => {
     canseledOrderDishes(newArr);
   };
 
-  const handleOrder = (dish: IProduct) => {
+  const handleOrder = (dish: IFood) => {
     incrementTotalPrice(dish.price * quantity);
     const updateOrderedFood = [...orderedFood, { dish, quantity }];
     setOrderedFood(updateOrderedFood);
@@ -73,19 +73,19 @@ const Food: FC<IFoodProps> = ({ food }) => {
       cover={
         <Image
           style={{ height: 200, borderRadius: 10 }}
-          alt={food.title}
-          src={food.thumbnail}
+          alt={food.foodName}
+          src={food.image}
         />
       }
     >
       <Meta
         style={{ fontSize: 16 }}
         title={
-          <Tooltip title={food.title}>
-            <span style={{ fontSize: 20 }}>{food.title}</span>
+          <Tooltip title={food.foodName}>
+            <span style={{ fontSize: 20 }}>{food.foodName}</span>
           </Tooltip>
         }
-        description={`Калорийность ${food.price}`}
+        description={`Калорийность ${food.calories}`}
       />
       <div
         style={{

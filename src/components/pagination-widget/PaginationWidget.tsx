@@ -30,7 +30,7 @@ const PaginationWidget = ({ data }: { data: IDataProps }) => {
       <Pagination
         style={{ marginTop: 10 }}
         current={Number(page)}
-        total={data.total}
+        total={data.items}
         onChange={changePage}
       />
     </>
