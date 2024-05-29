@@ -4,7 +4,7 @@ import { Button, Card, Image, Space, Tooltip } from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
 import { FC, useState } from "react";
-import { IFood, IProduct } from "../../shared/ui/interfaces";
+import { IFood } from "../../shared/ui/interfaces";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface IFoodProps {

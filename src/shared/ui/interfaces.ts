@@ -26,11 +26,11 @@ export interface IReserTable {
   totalPrice: number;
 }
 
-export interface IProduct {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  category: string;
-  thumbnail: string;
-}
+// export interface IProduct {
+//   id: number;
+//   title: string;
+//   description: string;
+//   price: number;
+//   category: string;
+//   thumbnail: string;
+// }
