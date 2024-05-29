@@ -15,7 +15,7 @@ const PaginationWidget = ({ data }: { data: IDataProps }) => {
   // const [currentPage, setCurrentPage] = useState(1);
   const updateRoute = (page: number) => {
     const params = new URLSearchParams(searchParams);
-    params.set("_page", page.toString());
+    params.set("page", page.toString());
     console.log("parameters:  ", params);
     replace(`${pathname}?${params.toString()}`);
   };

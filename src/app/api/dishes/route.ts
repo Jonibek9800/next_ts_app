@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   try {
     return NextResponse.json(
       {
-        data: dishes,
+        data: paginateData(),
         total: dishes.length,
         page: Number(page) ?? 1,
         limit: PER_PAGE,
