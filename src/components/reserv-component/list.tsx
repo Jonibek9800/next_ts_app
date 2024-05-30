@@ -21,7 +21,9 @@ const List = ({ list }: { list: IReserTable[] }) => {
         flexWrap: "wrap",
         gap: 10,
         margin: "auto",
+        textAlign: "center",
         maxWidth: 980,
+        justifyContent: "center",
       }}
     >
       {reserList.map((table, ind) => {
