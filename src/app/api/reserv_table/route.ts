@@ -25,8 +25,6 @@ export async function POST(request: Request) {
     }
     fs.writeFileSync(filePath, JSON.stringify(reservTable));
 
-    // const result =
-    //   await sql`CREATE TABLE Pets ( Name varchar(255), Owner varchar(255) );`;
     return NextResponse.json(
       { message: "Данные успешно добавлены" },
       { status: 200 }

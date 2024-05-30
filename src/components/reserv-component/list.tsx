@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useAuthStore } from "@/shared/store/auth/auth";
 import { useTableStore } from "@/shared/store/table_reservation/table_reservation";
@@ -15,17 +15,30 @@ const List = ({ list }: { list: IReserTable[] }) => {
     }
   }, [list, user.id, setReservList]);
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-      {reserList.map((table) => {
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 10,
+        margin: "auto",
+        maxWidth: 980,
+      }}
+    >
+      {reserList.map((table, ind) => {
         return (
           <div
             key={table.id}
-            style={{ padding: 10, border: "1px solid grey", borderRadius: 10 }}
+            style={{
+              padding: 10,
+              border: "1px solid grey",
+              borderRadius: 10,
+              width: 180,
+            }}
           >
             <div>
-              Заказ <h4>{table.peopleQuantity}</h4>
+              Брон №{ind + 1} <h4>{table.peopleQuantity}</h4>
             </div>
-            <div>Стоимость заказа {table.totalPrice}</div>
+            <div>Стоимость заказа {table.totalPrice} c</div>
           </div>
         );
       })}

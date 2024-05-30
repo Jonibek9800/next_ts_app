@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const page: string | null = searchParams.get("page");
   console.log(searchParams);
 
-  const PER_PAGE = 10;
+  const PER_PAGE = 8;
   const paginateData = () => {
     const startIndex = (Number(page) - 1) * PER_PAGE;
 

@@ -12,7 +12,7 @@ const PaginationWidget = ({ data }: { data: IDataProps }) => {
   const setPage = useNavigateStore((state) => state.setPage);
   const { replace } = useRouter();
   const pathname = usePathname();
-  // const [currentPage, setCurrentPage] = useState(1);
+  
   const updateRoute = (page: number) => {
     const params = new URLSearchParams(searchParams);
     params.set("page", page.toString());
@@ -24,12 +24,14 @@ const PaginationWidget = ({ data }: { data: IDataProps }) => {
     setPage(page);
     updateRoute(page);
   };
+  
 
   return (
     <>
       <Pagination
         style={{ marginTop: 10 }}
         current={Number(page)}
+        defaultPageSize={data.limit}
         total={data.total}
         onChange={changePage}
       />

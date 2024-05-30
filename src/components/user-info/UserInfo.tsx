@@ -6,6 +6,7 @@ import { UserOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { IUser } from "@/shared/ui/interfaces";
 import { getFromStoreg } from "@/shared/utils/utils";
+import { Content } from "antd/es/layout/layout";
 
 const UserInfo = () => {
   const [user, setUser] = useState<IUser>();
@@ -23,18 +24,22 @@ const UserInfo = () => {
           style={{
             textAlign: "center",
             padding: 10,
-            margin: 30,
+            margin: "auto",
+            display: "flex",
             border: "1px solid grey",
             borderRadius: 10,
+            maxWidth: 500,
           }}
         >
           <Avatar
-            style={{ backgroundColor: "#87d068" }}
-            size={100}
-            icon={<UserOutlined />}
+            style={{ backgroundColor: "#f56a00" }}
+            size={200}
+            src="/swat.png"
           />
-          <Title level={3}>Имя {user?.name}</Title>
-          <Title level={4}>Возраст {user.age}</Title>
+          <Content>
+            <Title level={3}>Имя {user?.name}</Title>
+            <Title level={4}>Возраст {user.age}</Title>
+          </Content>
         </div>
       ) : (
         <div>Loading...</div>

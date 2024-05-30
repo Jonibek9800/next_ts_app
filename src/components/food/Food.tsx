@@ -62,7 +62,7 @@ const Food: FC<IFoodProps> = ({ food }) => {
   };
 
   const handleInfo = () => {
-    params.set("query", String(food.id));
+    params.set("id", String(food.id));
     replace(`${pathname}/${food.id}?${params.toString()}`);
   };
 

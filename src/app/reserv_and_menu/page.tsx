@@ -6,7 +6,7 @@ import Title from "antd/es/typography/Title";
 const MenuAndReserv = ({
   searchParams,
 }: {
-  searchParams?: { query: string; page: string };
+  searchParams?: { id: string; page: string };
 }) => {
   return (
     <Content style={{ textAlign: "center" }}>

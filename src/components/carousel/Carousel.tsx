@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { FC } from "react";
 import { Carousel, Image } from "antd";
 
@@ -12,7 +13,7 @@ const CarouselSlider: FC = () => {
   return (
     <Carousel style={{ width: "100%", margin: "auto" }} autoplay>
       <div>
-        <Image
+        <img
           style={{
             ...contentStyle,
           }}
@@ -23,7 +24,7 @@ const CarouselSlider: FC = () => {
         />
       </div>
       <div >
-        <Image
+        <img
           style={{
             ...contentStyle,
           }}
@@ -34,7 +35,7 @@ const CarouselSlider: FC = () => {
         />
       </div>
       <div >
-        <Image
+        <img
           style={{
             ...contentStyle,
           }}
@@ -45,7 +46,7 @@ const CarouselSlider: FC = () => {
         />
       </div>
       <div>
-        <Image
+        <img
           width="100%"
           height="100%"
           src="./img/resto_fon4.jpg"
@@ -56,7 +57,7 @@ const CarouselSlider: FC = () => {
         />
       </div>
       <div >
-        <Image
+        <img
           width="100%"
           height="100%"
           style={{

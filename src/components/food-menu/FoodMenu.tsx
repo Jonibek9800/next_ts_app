@@ -6,6 +6,7 @@ import { BASE_API_URL } from "@/shared/services";
 export interface IDataProps {
   data: IFood[];
   total: number;
+  limit: number
 }
 export const revalidate = 10;
 

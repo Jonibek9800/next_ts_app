@@ -1,6 +1,6 @@
 import { getDishesById } from "@/shared/services/dishes_service/dishes_service";
 import { IFood } from "@/shared/ui/interfaces";
-import { Image } from "antd";
+import { Divider, Image } from "antd";
 import { Content } from "antd/es/layout/layout";
 import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
@@ -8,14 +8,9 @@ import Title from "antd/es/typography/Title";
 const FoodInfo = async ({
   searchParams,
 }: {
-  searchParams: { query: string; page: string };
+  searchParams: { id: string; page: string };
 }) => {
-  console.log(searchParams.query);
-  const food: IFood = await getDishesById(
-    "/products",
-    searchParams?.query ?? "1"
-  );
-  console.log(food);
+  const food: IFood = await getDishesById("/dishes", searchParams?.id ?? "1");
   return (
     <>
       <Content
@@ -34,9 +29,27 @@ const FoodInfo = async ({
         </div>
         <div style={{ textAlign: "center", maxWidth: 350, margin: "auto" }}>
           <Title level={2}>{food.foodName}</Title>
-          <Paragraph>Калорийность {food.price}</Paragraph>
-
-          <Paragraph>{food.description}</Paragraph>
+          <Divider />
+          <Paragraph>Калорийность {food.calories}</Paragraph>
+          <div
+            style={{
+              display: "flex",
+              gap: 10,
+              justifyContent: "end",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <h4 style={{ fontSize: 22, fontWeight: 500, lineHeight: 0 }}>
+              {food.price} c
+            </h4>
+            <span>/ 400 гр</span>
+          </div>
+          <Divider />
+          <div>
+            <Title level={4}>Описаные</Title>
+            <Paragraph>{food.description}</Paragraph>
+          </div>
         </div>
       </Content>
     </>
