@@ -5,7 +5,7 @@ export async function GET(request: Request) {
   const dishes = data.dishes;
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");
-  const food = dishes.filter((dish) => dish.id === searchParams.get("id"));
+  const food = dishes.filter((dish) => dish.id === id);
   console.log(id, food);
 
   try {

@@ -11,7 +11,7 @@ export const getDishes = cache(async (path: string, page: string) => {
 });
 
 export const getDishesById = async (path: string, id: string) => {
-  const response = await instance.get(path + `/${id}?id=${id}`);
+  const response = await instance.get(path + `/dish?id=${id}`);
   // console.log(response);
 
   return response.data;
