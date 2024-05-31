@@ -5,6 +5,7 @@ import { useTableStore } from "@/shared/store/table_reservation/table_reservatio
 import { reservTable } from "@/shared/services/dishes_service/dishes_service";
 import { useAuthStore } from "@/shared/store/auth/auth";
 import { useRouter } from "next/navigation";
+import FoodMenu, { IDataProps } from "../food-menu/FoodMenu";
 const tables = [
   {
     value: "столик на одного",
@@ -31,10 +32,10 @@ const tables = [
 interface IReservMenuProps {
   onClose: any;
   open: boolean;
-  page: string;
+  data: IDataProps;
 }
 
-const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, page }) => {
+const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, data }) => {
   const router = useRouter();
   const orderedFood = useTableStore((state) => state.orderedFood);
   const orderedTable = useTableStore((state) => state.orderedTable);
@@ -94,13 +95,13 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, page }) => {
             <Radio value="заказать сейчас">Заказать сейчась</Radio>
           </Space>
         </Radio.Group>
-        {orderedTable.dishesOrder === "заказать сейчас"
-          ? // <FoodMenu page={page} />
-            // <WrapperServerComponent>
-            //   <FoodMenu page={page} />
-            // </WrapperServerComponent>"
-            ""
-          : ""}
+        {orderedTable.dishesOrder === "заказать сейчас" ? (
+          // <FoodMenu page={page} />
+          // <WrapperServerComponent>
+          <FoodMenu data={data} />
+        ) : (
+          ""
+        )}
         <div
           style={{
             position: "fixed",

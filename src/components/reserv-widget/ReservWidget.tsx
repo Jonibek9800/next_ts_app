@@ -1,11 +1,12 @@
-"use client"
+"use client";
 import { Button, Card, Image } from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
 import ReservMenu from "../reserv-menu/ReservMenu";
 import { useState } from "react";
+import { IDataProps } from "../food-menu/FoodMenu";
 
-const ReservWidget = ({page}: {page: string}) => {
+const ReservWidget = ({ data }: { data: IDataProps }) => {
   const [open, setOpen] = useState(false);
 
   const toggleClose = () => {
@@ -26,7 +27,7 @@ const ReservWidget = ({page}: {page: string}) => {
           title={<Button onClick={toggleClose}>Забронировать столик</Button>}
         />
       </Card>
-      {open && <ReservMenu onClose={toggleClose} open={open} page={page}/>}
+      {open && <ReservMenu onClose={toggleClose} open={open} data={data} />}
     </>
   );
 };

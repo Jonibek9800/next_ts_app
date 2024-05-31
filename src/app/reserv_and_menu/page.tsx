@@ -1,18 +1,23 @@
-import FoodMenu from "@/components/food-menu/FoodMenu";
+import FoodMenu, { IDataProps } from "@/components/food-menu/FoodMenu";
 import ReservWidget from "@/components/reserv-widget/ReservWidget";
+import { getDishes } from "@/shared/services/dishes_service/dishes_service";
 import { Content } from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";
 
-const MenuAndReserv = ({
+const MenuAndReserv = async ({
   searchParams,
 }: {
   searchParams?: { id: string; page: string };
 }) => {
+  const data: IDataProps = await getDishes(
+    "/dishes",
+    searchParams?.page ?? "1"
+  );
   return (
     <Content style={{ textAlign: "center" }}>
-      <ReservWidget page={searchParams?.page ?? "1"} />
+      <ReservWidget data={data} />
       <Title level={3}>Меню</Title>
-      <FoodMenu page={searchParams?.page ?? "1"} />
+      <FoodMenu data={data} />
     </Content>
   );
 };

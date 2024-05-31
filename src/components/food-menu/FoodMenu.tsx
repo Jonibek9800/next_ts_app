@@ -1,22 +1,15 @@
+"use client";
 import Food from "../food/Food";
-import { getDishes } from "@/shared/services/dishes_service/dishes_service";
 import { IFood } from "@/shared/ui/interfaces";
 import PaginationWidget from "../pagination-widget/PaginationWidget";
-import { BASE_API_URL } from "@/shared/services";
 export interface IDataProps {
   data: IFood[];
   total: number;
-  limit: number
+  limit: number;
 }
 export const revalidate = 10;
 
-const FoodMenu = async ({ page }: { page: string }) => {
-  if (!BASE_API_URL) {
-    return <h1>Not found Menu</h1>;
-  }
-  const data: IDataProps = await getDishes("/dishes", page ?? "1");
-  console.log(data);
-
+const FoodMenu = ({ data }: { data: IDataProps }) => {
   return (
     <>
       {!data ? (
