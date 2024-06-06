@@ -2,11 +2,11 @@
 import { Button, Card, Image } from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
-import ReservMenu from "../reserv-menu/ReservMenu";
+import ReservMenu from "../reserv-modal/ReservModal";
 import { useState } from "react";
 import { IDataProps } from "../food-menu/FoodMenu";
 
-const ReservWidget = ({ data }: { data: IDataProps }) => {
+const ReservAndMenu = ({ data }: { data: IDataProps }) => {
   const [open, setOpen] = useState(false);
 
   const toggleClose = () => {
@@ -32,4 +32,4 @@ const ReservWidget = ({ data }: { data: IDataProps }) => {
   );
 };
 
-export default ReservWidget;
+export default ReservAndMenu;

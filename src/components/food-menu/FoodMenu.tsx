@@ -1,7 +1,7 @@
 "use client";
 import Food from "../food/Food";
 import { IFood } from "@/shared/ui/interfaces";
-import PaginationWidget from "../pagination-widget/PaginationWidget";
+import PaginationWidget from "../pagination/Pagination";
 export interface IDataProps {
   data: IFood[];
   total: number;
@@ -12,7 +12,7 @@ export const revalidate = 10;
 const FoodMenu = ({ data }: { data: IDataProps }) => {
   return (
     <>
-      {!data ? (
+      {!data.data ? (
         <div>Loading...</div>
       ) : (
         <>
@@ -24,7 +24,7 @@ const FoodMenu = ({ data }: { data: IDataProps }) => {
               justifyContent: "center",
             }}
           >
-            {data !== undefined
+            {data.data !== undefined
               ? data.data.map((dish: any) => {
                   return <Food key={dish.id} food={dish} />;
                 })

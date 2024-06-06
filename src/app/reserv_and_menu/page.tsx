@@ -1,5 +1,5 @@
 import FoodMenu, { IDataProps } from "@/components/food-menu/FoodMenu";
-import ReservWidget from "@/components/reserv-widget/ReservWidget";
+import ReservWidget from "@/components/reserv-and-menu/ReservWidget";
 import { getDishes } from "@/shared/services/dishes_service/dishes_service";
 import { Content } from "antd/es/layout/layout";
 import Title from "antd/es/typography/Title";

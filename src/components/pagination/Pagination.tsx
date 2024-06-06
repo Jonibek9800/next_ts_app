@@ -1,22 +1,19 @@
 "use client";
-import { IFood } from "@/shared/ui/interfaces";
 import { Pagination } from "antd";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
 import { IDataProps } from "../food-menu/FoodMenu";
 import { useNavigateStore } from "@/shared/store/navigate/navigate";
 
-const PaginationWidget = ({ data }: { data: IDataProps }) => {
+const PaginationPage = ({ data }: { data: IDataProps }) => {
   const searchParams = useSearchParams();
   const page = useNavigateStore((state) => state.page);
   const setPage = useNavigateStore((state) => state.setPage);
   const { replace } = useRouter();
   const pathname = usePathname();
-  
+
   const updateRoute = (page: number) => {
     const params = new URLSearchParams(searchParams);
     params.set("page", page.toString());
-    console.log("parameters:  ", params);
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -24,7 +21,6 @@ const PaginationWidget = ({ data }: { data: IDataProps }) => {
     setPage(page);
     updateRoute(page);
   };
-  
 
   return (
     <>
@@ -39,4 +35,4 @@ const PaginationWidget = ({ data }: { data: IDataProps }) => {
   );
 };
 
-export default PaginationWidget;
+export default PaginationPage;

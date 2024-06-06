@@ -35,7 +35,7 @@ interface IReservMenuProps {
   data: IDataProps;
 }
 
-const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, data }) => {
+const ReservModal: FC<IReservMenuProps> = ({ onClose, open, data }) => {
   const router = useRouter();
   const orderedFood = useTableStore((state) => state.orderedFood);
   const orderedTable = useTableStore((state) => state.orderedTable);
@@ -62,7 +62,6 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, data }) => {
       orderedDishes: orderedFood,
       totalPrice: totalOrderPrice,
     };
-    // router.refresh();
     reservTable("reservTable", reservTables);
     resetTableOrder();
   };
@@ -96,8 +95,6 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, data }) => {
           </Space>
         </Radio.Group>
         {orderedTable.dishesOrder === "заказать сейчас" ? (
-          // <FoodMenu page={page} />
-          // <WrapperServerComponent>
           <FoodMenu data={data} />
         ) : (
           ""
@@ -131,4 +128,4 @@ const ReservMenu: FC<IReservMenuProps> = ({ onClose, open, data }) => {
   );
 };
 
-export default ReservMenu;
+export default ReservModal;

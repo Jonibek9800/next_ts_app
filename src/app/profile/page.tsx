@@ -1,6 +1,6 @@
 "use client";
 import Title from "antd/es/typography/Title";
-import ReservList from "@/components/reserv-component/ReservList";
+import ReservList from "@/components/user-reservation-sheet/ReservList";
 import { Content } from "antd/es/layout/layout";
 import PrivateRoute from "@/shared/routes/private/PrivateRoute";
 import UserInfo from "@/components/user-info/UserInfo";

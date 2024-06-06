@@ -69,7 +69,12 @@ const Food: FC<IFoodProps> = ({ food }) => {
   return (
     <Card
       key={food.id}
-      style={{ width: "300px", textAlign: "start", cursor: "pointer" }}
+      style={{
+        width: "300px",
+        textAlign: "start",
+        cursor: "pointer",
+        boxShadow: `rgba(100, 100, 111, 0.2) 0px 7px 29px 0px`,
+      }}
       cover={
         <Image
           style={{ height: 200, borderRadius: 10 }}
